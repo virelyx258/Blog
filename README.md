@@ -24,7 +24,7 @@ Eidolon，基于 [Astro](https://astro.build) 进行构建的主题，设计思�
 - 支持多样的短代码；
 - 原生支持友链卡片。
 
-欢迎使用。如果能帮助到你，欢迎去 [GitHub 仓库](https://github.com/virelyx258/astro_theme_)给我点个 Star。
+欢迎使用。如果能帮助到你，欢迎去 [GitHub 仓库](https://github.com/virelyx258/astro_theme_) 给我点个 Star。
 
 ## 版权协议
 

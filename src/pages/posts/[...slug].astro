@@ -42,7 +42,7 @@ const dateText = `${date.year} 年 ${date.month} 月 ${date.day} 日`;
     <div class="prose" data-pagefind-body><Content /></div>
     <ImageLightbox />
     {tags.length > 0 && <div class="mt-10 flex flex-wrap justify-center gap-2 border-t border-line pt-5 text-sm" aria-label="标签">
-      {tags.map((tag) => <a class="rounded-[3px] bg-raised px-2.5 py-1 no-underline" href={`/tags/${slugify(tag)}/`}>#{tag}</a>)}
+      {tags.map((tag) => <a class="rounded-[3px] bg-[var(--color-post-tag-bg)] px-2.5 py-1 no-underline" href={`/tags/${slugify(tag)}/`}>#{tag}</a>)}
     </div>}
     <nav class="mt-10 grid grid-cols-1 overflow-hidden rounded-[4px] border border-line bg-raised sm:grid-cols-2" aria-label="相邻文章" data-pagefind-ignore="all">
       {newer ? <a class="grid min-h-24 content-center p-4 no-underline sm:border-r sm:border-line" href={getPostPath(newer)}><span class="text-xs text-subtle">下一篇</span><strong class="mt-1 font-sans text-base font-normal">{newer.data.title}</strong></a> : <span class="grid min-h-24 content-center p-4 sm:border-r sm:border-line"><span class="text-xs text-subtle">下一篇</span><strong class="mt-1 font-sans text-base font-normal">没有更多了</strong></span>}

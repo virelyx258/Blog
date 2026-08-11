@@ -9,14 +9,14 @@
   --color-accent-strong: #138a74;
   --color-accent-contrast: #102b27;
   --mirages-font-ui: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --mirages-font-sans: "Mirages Custom", Merriweather, "Open Sans", "Segoe UI Emoji", "Segoe UI Symbol", Helvetica, Arial, sans-serif;
+  --mirages-font-sans: "Mirages Custom", Merriweather, "Open Sans", "PingFang SC", "Noto Sans SC", "Noto Sans TC", "Microsoft YaHei", "WenQuanYi Micro Hei", "Segoe UI Emoji", "Segoe UI Symbol", Helvetica, Arial, sans-serif;
   --mirages-font-serif: "Noto Serif SC", serif;
   --mirages-font-code: Consolas, Menlo, Monaco, "Liberation Mono", "Courier New", monospace;
   --font-sans: var(--mirages-font-sans);
   --font-serif: var(--mirages-font-serif);
   --reading-font-family: var(--mirages-font-sans);
   --content-width: 704px;
-  --article-content-width: 606px;
+  --article-content-width: 628px;
   --page-width: 720px;
   --nav-height: 4rem;
   --radius-sm: .25rem;
@@ -25,42 +25,66 @@
   --transition-fast: 160ms ease;
 }
 
-@media (min-width: 1302px) {
+:root[data-font='serif'] {
+  --article-content-width: 684px;
+}
+
+@media (min-width: 1251px) {
   :root {
     --content-width: 848px;
-    --article-content-width: 662px;
+    --article-content-width: 684px;
     --page-width: 864px;
+  }
+
+  :root[data-font='serif'] {
+    --article-content-width: 742px;
   }
 }
 
 @media (min-width: 1600px) {
   :root {
     --content-width: 880px;
-    --article-content-width: 720px;
+    --article-content-width: 742px;
     --page-width: 896px;
+  }
+
+  :root[data-font='serif'] {
+    --article-content-width: 802px;
   }
 }
 
 @media (min-width: 1800px) {
   :root {
     --content-width: 944px;
-    --article-content-width: 752px;
+    --article-content-width: 774px;
     --page-width: 960px;
+  }
+
+  :root[data-font='serif'] {
+    --article-content-width: 842px;
   }
 }
 
 @media (min-width: 1920px) {
   :root {
     --content-width: 976px;
-    --article-content-width: 800px;
+    --article-content-width: 822px;
     --page-width: 992px;
+  }
+
+  :root[data-font='serif'] {
+    --article-content-width: 902px;
   }
 }
 
 @media (min-width: 2400px) {
   :root {
     --content-width: 1008px;
-    --article-content-width: 850px;
+    --article-content-width: 872px;
     --page-width: 1024px;
+  }
+
+  :root[data-font='serif'] {
+    --article-content-width: 962px;
   }
 }

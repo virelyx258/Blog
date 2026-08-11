@@ -154,9 +154,15 @@ a {
   .card-list-shell {
      width: min(calc(100% - 1.75rem), var(--page-width));
   }
+}
+
+@media (max-width: 767px) {
+  html {
+    scrollbar-gutter: auto;
+  }
 
   .article-shell {
-     width: min(calc(100% - 3.125rem), var(--article-content-width));
+     width: min(calc(100% - 2.75rem), 666px);
   }
 }
 

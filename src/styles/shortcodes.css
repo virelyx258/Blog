@@ -190,11 +190,12 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   background: var(--color-surface);
+  font-family: var(--reading-font-family);
 }
 .shortcode-tools-title {
   margin: 0 0 0.55rem;
   color: var(--color-text);
-  font: 600 1rem/1.35 var(--mirages-font-ui);
+  font: 600 1rem/1.35 var(--reading-font-family);
 }
 .shortcode-tool-list {
   display: grid;
@@ -261,7 +262,7 @@
 }
 .shortcode-tool-name {
   font-size: 0.9rem;
-  font-family: var(--mirages-font-ui);
+  font-family: var(--reading-font-family);
   line-height: 1.25;
 }
 .shortcode-tool-description {

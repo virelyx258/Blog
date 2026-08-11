@@ -23,3 +23,11 @@ Eidolon，基于 [Astro](https://astro.build) 进行构建的主题，设计思�
 - 支持 LaTeX 数学公式解析；
 - 支持多样的短代码；
 - 原生支持友链卡片。
+
+欢迎使用。如果能帮助到你，欢迎去 [GitHub 仓库](https://github.com/virelyx258/astro_theme_)给我点个 Star。
+
+## 版权协议
+
+本站的文章基于 [CC-BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh-hans) 协议公开。
+
+转载请注明原文链接。[协议](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh-hans)不允许对本站文章的再混合、转换、或者二次创作。若认为有必要二创，请邮件沟通。

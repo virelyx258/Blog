@@ -1,4 +1,4 @@
-![Astro](https://img.shields.io/badge/Built%20with-Astro-dee2e6?logo=astro&logoColor=white&style=for-the-badge)![Eidolon](https://img.shields.io/badge/theme-eidolon-yellow?style=for-the-badge)
+![Astro](https://img.shields.io/badge/Built%20with-Astro-dee2e6?logo=astro&logoColor=white&style=for-the-badge)   ![Eidolon](https://img.shields.io/badge/theme-eidolon-yellow?style=for-the-badge)
 
 ---
 

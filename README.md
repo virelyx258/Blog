@@ -4,7 +4,11 @@
 
 这里是 **⌈路明笔记⌋** 的代码仓库。
 
+[GitHub 仓](https://github.com/virelyx258/Blog) | [云谷仓](https://src.luming.cool/riseforever2026/Blog)
+
 之所以在自己的服务器上托管一份，是因为 GitHub 直连很不稳定，导致我无法愉快地更新博客。自托管后，无需挂代理即可轻松更新。
+
+两个仓库互为镜像关系，同步更新。
 
 ## 主题
 

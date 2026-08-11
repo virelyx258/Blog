@@ -131,11 +131,15 @@ GitHub：[virelyx258](https://github.com/virelyx258)
 
 ### 主题
 
-使用自己制作的 Astro 主题 Mirages。
+使用自己制作的 Astro 主题 Eidolon。
 
 它极大程度上复刻了 Typecho 主题 Mirages 的风格和功能，又在此基础上使用了更先进的 TailWind CSS，使得站点响应速度更加优秀。
 
-因为 Mirages 是一款付费主题，如果贸然开源会影响到原主题的销售，且本站主题仍处于开发状态，所以本主题暂不开源。
+~~因为 Mirages 是一款付费主题，如果贸然开源会影响到原主题的销售，且本站主题仍处于开发状态，所以本主题暂不开源。~~
+
+仔细想想，发现我们其实不是同一个赛道。我做的是 Astro 主题，受众是 Astro 用户，不耽误 Typecho 主题的销售。况且，并不是所有 Typecho 用户都能无感切换到静态博客。
+
+所以，本主题准备开源。
 
 [collapse title="在此之前"]
 

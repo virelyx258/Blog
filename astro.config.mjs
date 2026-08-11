@@ -6,6 +6,8 @@ import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import shortcodes from './src/lib/shortcodes.ts';
 import externalLinks from './src/lib/external-links.ts';
+import responsiveTables from './src/lib/responsive-tables.ts';
+import noticeShortcode from './src/lib/notice-shortcode.ts';
 import { siteConfig } from './src/site.config.ts';
 import { copyFileSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
@@ -46,7 +48,7 @@ export default defineConfig({
     },
     processor: unified({
       remarkPlugins: [remarkMath, [shortcodes, { githubData, siteUrl: siteConfig.site.url }]],
-      rehypePlugins: [rehypeKatex, [externalLinks, { siteUrl: siteConfig.site.url }]]
+      rehypePlugins: [rehypeKatex, noticeShortcode, responsiveTables, [externalLinks, { siteUrl: siteConfig.site.url }]]
     })
   }
 });

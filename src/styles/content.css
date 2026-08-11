@@ -210,14 +210,66 @@
   background: var(--color-code);
 }
 
+.shortcode-code {
+  --shortcode-code-gutter: color-mix(in srgb, var(--color-code) 78%, var(--color-accent));
+  padding: 0;
+}
+
+.shortcode-code code {
+  padding-block: 1rem;
+  font-size: 0;
+}
+
+.shortcode-code .line {
+  display: flex;
+  min-height: 1.45em;
+  font-size: .875rem;
+  line-height: 1.45;
+}
+
+.shortcode-code .shortcode-line-number {
+  display: inline-block;
+  box-sizing: border-box;
+  min-width: 3rem;
+  flex: 0 0 3rem;
+  margin-right: 1rem;
+  padding-inline: 1rem;
+  background: var(--shortcode-code-gutter);
+  color: var(--color-muted);
+  font-size: .875rem;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.72;
+  text-align: right;
+  user-select: none;
+}
+
+.shortcode-code .line:first-of-type .shortcode-line-number { box-shadow: 0 -1rem var(--shortcode-code-gutter); }
+.shortcode-code .line:last-of-type .shortcode-line-number { box-shadow: 0 1rem var(--shortcode-code-gutter); }
+.shortcode-code .line:only-of-type .shortcode-line-number { box-shadow: 0 -1rem var(--shortcode-code-gutter), 0 1rem var(--shortcode-code-gutter); }
+
 .prose .katex-display { max-width: 100%; overflow-x: auto; overflow-y: hidden; padding-block: .35em; }
 
 .prose .mermaid { max-width: 100%; overflow-x: auto; overflow-y: hidden; padding: 1rem 0; }
 .prose .mermaid svg { max-width: none; height: auto; }
 
+.prose .table-scroll {
+  width: 100%;
+  max-width: 100%;
+  margin: 1.25em 0;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-color: color-mix(in srgb, var(--color-muted) 60%, transparent) transparent;
+  scrollbar-width: thin;
+}
+
+.prose .table-scroll::-webkit-scrollbar { height: 8px; }
+.prose .table-scroll::-webkit-scrollbar-thumb { border-radius: 4px; background: color-mix(in srgb, var(--color-muted) 60%, transparent); }
+
 .prose table {
   width: 100%;
+  margin: 0;
   border-collapse: collapse;
+  table-layout: fixed;
 }
 
 .prose thead {
@@ -239,6 +291,14 @@
 .prose :where(th, td) {
   padding: 0.55em 0.8em;
   border: 1px solid var(--color-border);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+@media (max-width: 48rem) {
+  .prose .responsive-table {
+    width: max(100%, calc(var(--table-columns, 1) * 8rem));
+  }
 }
 
 .prose :where(th, td)[align='left'] { text-align: left; }

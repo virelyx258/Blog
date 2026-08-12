@@ -4,9 +4,14 @@ pubDate: "2026-08-12T17:12:15.423Z"
 categories: ['科技']
 tags: ['主题']
 draft: false
+comments: true
 ---
 
 Eidolon 是一款轻量、简洁且美观的 Astro 主题。基于 MIT License 开源。 
+
+在线体验地址：本站 或 [Eidolon](https://eidolon.luming.cool)
+
+快速上手教程见[Eidolon](https://eidolon.luming.cool)。
 
 [GitHub](https://github.com/virelyx258/Astro-Theme-Eidolon) | [云仓](https://src.luming.cool/riseforever2026/Eidolon)
 

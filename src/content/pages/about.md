@@ -131,7 +131,7 @@ GitHub：[virelyx258](https://github.com/virelyx258)
 
 ### 主题
 
-使用自己制作的 Astro 主题 Eidolon。
+使用我与 AI 协作制作的 Astro 主题 Eidolon。
 
 它极大程度上复刻了 Typecho 主题 Mirages 的风格和功能，又在此基础上使用了更先进的 TailWind CSS，使得站点响应速度更加优秀。
 

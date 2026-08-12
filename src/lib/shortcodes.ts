@@ -69,7 +69,7 @@ function normalizeMarkdownHeadings(source: string): string {
   }).join('\n');
 }
 
-function markdown(source: string, preserveHtml = false, lineNumbers = false): string {
+function markdown(source: string, preserveHtml = true, lineNumbers = true): string {
   const normalized = normalizeMarkdownHeadings(source);
   const tree = fromMarkdown(normalized, { extensions: [gfm()], mdastExtensions: [gfmFromMarkdown()] });
   transform(tree, normalized);
@@ -79,23 +79,30 @@ function markdown(source: string, preserveHtml = false, lineNumbers = false): st
     visit(hast, 'element', (node: any) => {
       if (node.tagName !== 'pre') return;
       const code = node.children?.find((child: any) => child.type === 'element' && child.tagName === 'code');
-      if (!code || code.children?.some((child: any) => child.type !== 'text')) return;
-      const value = code.children.map((child: any) => child.value).join('');
-      const lines = value.endsWith('\n') ? value.slice(0, -1).split('\n') : value.split('\n');
+      if (!code) return;
       const classes = Array.isArray(node.properties?.className) ? node.properties.className : [];
-      node.properties = { ...node.properties, className: [...classes, 'shortcode-code'] };
-      code.children = lines.flatMap((line: string, index: number) => [
-        {
+      if (!classes.includes('astro-code')) classes.push('astro-code');
+      if (!classes.includes('shortcode-code')) classes.push('shortcode-code');
+      if (!classes.includes('no-pangu-spacing')) classes.push('no-pangu-spacing');
+      node.properties = { ...node.properties, className: classes };
+      if (code.children?.every((child: any) => child.type === 'text')) {
+        const value = code.children.map((child: any) => child.value).join('');
+        const text = value.endsWith('\n') ? value.slice(0, -1) : value;
+        const lines = text.split('\n');
+        code.children = lines.map((line: string) => ({
           type: 'element',
           tagName: 'span',
           properties: { className: ['line'] },
           children: [
-            { type: 'element', tagName: 'span', properties: { className: ['shortcode-line-number'], ariaHidden: 'true' }, children: [{ type: 'text', value: String(index + 1) }] },
-            ...(line ? [{ type: 'text', value: line }] : []),
+            {
+              type: 'element',
+              tagName: 'span',
+              properties: { className: ['line-content'] },
+              children: line ? [{ type: 'text', value: line }] : [{ type: 'text', value: '\n' }],
+            }
           ],
-        },
-        ...(index < lines.length - 1 ? [{ type: 'text', value: '\n' }] : []),
-      ]);
+        }));
+      }
     });
   }
   applyNoticeShortcodes(hast);
@@ -131,7 +138,7 @@ function renderBlock(name: string, args: Record<string, string>, body = ''): str
     const type = requestedType === 'warn' ? 'warning' : requestedType === 'error' ? 'danger' : HINT_TYPES.has(requestedType ?? '') ? requestedType : 'info';
     const icon = `<svg class="content-hint-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${HINT_ICONS[type]}</svg>`;
     const heading = args.title ? `<div class="content-hint-heading">${icon}<p class="content-hint-title">${inline(args.title)}</p></div>` : icon;
-    return `<aside class="shortcode-hint content-hint shortcode-${name} shortcode-hint-${type} hint-${type}${args.title ? ' content-hint-has-title' : ''}" role="note">${heading}${markdown(body)}</aside>`;
+    return `<aside class="shortcode-hint content-hint shortcode-${name} shortcode-hint-${type} hint-${type}${args.title ? ' content-hint-has-title' : ''}" role="note">${heading}${markdown(body, true, true)}</aside>`;
   }
   if (name === 'collapse') {
     const open = args.open !== undefined || args.expanded !== undefined ? ' open' : '';
@@ -140,11 +147,11 @@ function renderBlock(name: string, args: Record<string, string>, body = ''): str
   if (name === 'tabs') {
     const parsed = parseBlocks(body);
     const tabs = parsed.filter((item) => item.name === 'tab');
-    if (!tabs.length) return `<details class="shortcode-collapse"><summary><span class="shortcode-collapse-marker" aria-hidden="true"></span><span>${inline(label || '展开内容')}</span></summary><div class="shortcode-body"><div class="shortcode-body-inner">${markdown(body)}</div></div></details>`;
+    if (!tabs.length) return `<details class="shortcode-collapse"><summary><span class="shortcode-collapse-marker" aria-hidden="true"></span><span>${inline(label || '展开内容')}</span></summary><div class="shortcode-body"><div class="shortcode-body-inner">${markdown(body, true, true)}</div></div></details>`;
     const id = `shortcode-tabs-${tabs.length}-${Math.random().toString(36).slice(2, 8)}`;
     const selected = Math.max(0, tabs.findIndex((tab) => tab.args.selected !== undefined));
     const buttons = tabs.map((tab, index) => `<button type="button" role="tab" aria-controls="${id}-panel-${index}" aria-selected="${index === selected}" id="${id}-tab-${index}" data-shortcode-tab="${id}"${index === selected ? '' : ' tabindex="-1"'}>${inline(tab.args.name ?? tab.args.title ?? `选项 ${index + 1}`)}</button>`).join('');
-    const panels = tabs.map((tab, index) => `<div role="tabpanel" id="${id}-panel-${index}" aria-labelledby="${id}-tab-${index}"${index === selected ? '' : ' hidden'}>${markdown(tab.body)}</div>`).join('');
+    const panels = tabs.map((tab, index) => `<div role="tabpanel" id="${id}-panel-${index}" aria-labelledby="${id}-tab-${index}"${index === selected ? '' : ' hidden'}>${markdown(tab.body, true, true)}</div>`).join('');
     return `<section class="shortcode-tabs" data-shortcode-tabs="${id}"><div class="shortcode-tab-list" role="tablist" aria-label="${escape(label || '选项卡')}">${buttons}</div>${panels}</section>`;
   }
   if (name === 'tools') {

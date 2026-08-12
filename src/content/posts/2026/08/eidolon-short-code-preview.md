@@ -17,6 +17,7 @@ Eidolon 主题支持短代码。除兼容 [Mirages](https://get233.com/archives/
 
 ```
 [shortcode param="value"]内容[/shortcode]
+亦或是
 [shortcode param="value"/]
 ```
 

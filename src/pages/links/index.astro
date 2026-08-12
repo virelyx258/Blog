@@ -75,7 +75,7 @@ if (!sections[0].links.length && !sections[0].contentLines.some((line) => line.t
   .link-copy h3 { margin: 0; font-size: 1rem; font-weight: 600; line-height: 1.45; }
   .link-name { display: inline; color: var(--color-accent); text-decoration: none; }
   :global(:root[data-theme='sunset']) .link-name { color: color-mix(in srgb, var(--color-accent-strong) 82%, black); }
-  .link-description, .link-note { margin: .2rem 0 0; color: var(--color-muted); font-size: .88rem; }
+  .link-description, .link-note { margin: .2rem 0 0; color: color-mix(in srgb, var(--color-text) 82%, var(--color-muted)); font-size: .88rem; }
   .link-note { font-size: .86rem; }
   .links-content { margin-top: 2rem; }
   .links-content .links-nested-card { margin-block: 1rem; }

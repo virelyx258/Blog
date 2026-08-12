@@ -305,8 +305,8 @@
 .prose .table-scroll::-webkit-scrollbar-thumb { border-radius: 4px; background: color-mix(in srgb, var(--color-muted) 60%, transparent); }
 
 .prose table {
-  width: max-content;
-  min-width: 100%;
+  width: 100%;
+  max-width: 100%;
   margin: 0;
   border-collapse: collapse;
   table-layout: auto;
@@ -333,6 +333,7 @@
   border: 1px solid var(--color-border);
   overflow-wrap: anywhere;
   word-break: break-word;
+  white-space: normal;
 }
 
 @media (max-width: 48rem) {

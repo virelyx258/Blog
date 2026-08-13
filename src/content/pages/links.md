@@ -42,7 +42,7 @@ slug: "links"
 
 [蒋音象](https://jiangyx.org/)+(https://image.luming.cool/i/2026/07/11/6a51235da5835.webp)/(以文会友，以友辅仁。)
 
-[摸鱼小窝](https://blog.aistu.cn)+(https://blog.aistu.cn/logo.webp)/(代码路上雾茫茫。)
+[摸鱼小窝](https://moyu.plus/)+(https://moyu.plus/favicon.ico)/(代码路上雾茫茫。)
 
 [岚汐の小窝](https://blog.lanxis.top/)+(https://pic.lingqi.vip/logo11.jpg)/(一个兽兽的小树屋~)
 

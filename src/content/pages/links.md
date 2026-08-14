@@ -48,6 +48,8 @@ slug: "links"
 
 [睿朗的秘密基地](https://blog.iamcrl.cn/)+(https://iamcrl.cn/avatar.jpg)/(Ruilang's Blog)
 
+[茶茶の博客](https://www.ituxin.top)+(https://image.luming.cool/i/2026/08/14/6a7e9351d2df0.webp)/(茶茶的个人博客，主要分享网络安全、网络工程、软件工程方面技术文章。)
+
 [云晓晨](https://blog.kaiqi.wang)+(https://www.kaiqi.wang/favicon.ico)/(未来路远，勿忘初心。)
 
 [柳橙睿](https://www.liuchengrui.cn/)+(https://image.luming.cool/i/2026/06/22/6a395765069a2.webp)/(其实我是一个假柳橙。)
@@ -72,7 +74,7 @@ slug: "links"
 
 [小景](https://jingyuan-zheng.github.io/zh/)+(https://image.luming.cool/i/2026/07/23/6a62284fa496c.webp)/(随心分享有趣的技术、开源项目与生活记录。)
 
-[Rain](https://rainzt.cn/)+(https://rainzt.cn/zzty.png)/(物物而不物于物，念念而不念于念)
+[Rain](https://rainzt.cn/)+(https://image.luming.cool/i/2026/08/14/6a7e92fda6bce.webp)/(物物而不物于物，念念而不念于念)
 
 [XXY の博客](https://blog.xuxiny.top)+(https://q1.qlogo.cn/headimg_dl?dst_uin=3429924750&spec=5)/(爱折腾，爱分享。)
 

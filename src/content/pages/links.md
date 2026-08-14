@@ -72,7 +72,7 @@ slug: "links"
 
 [小景](https://jingyuan-zheng.github.io/zh/)+(https://image.luming.cool/i/2026/07/23/6a62284fa496c.webp)/(随心分享有趣的技术、开源项目与生活记录。)
 
-[Rain](https://rainzt.cn)+(https://rainzt.cn/zzty.png)/(物物而不物于物，念念而不念于念)
+[Rain](https://rainzt.cn/)+(https://rainzt.cn/zzty.png)/(物物而不物于物，念念而不念于念)
 
 [XXY の博客](https://blog.xuxiny.top)+(https://q1.qlogo.cn/headimg_dl?dst_uin=3429924750&spec=5)/(爱折腾，爱分享。)
 

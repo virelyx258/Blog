@@ -46,7 +46,7 @@ slug: "links"
 
 [摸鱼小窝](https://blog.aistu.cn)+(https://blog.aistu.cn/logo.webp)/(代码路上雾茫茫。)
 
-[UpXuu](https://upxuu.com)+(https://upxuu.com/images/me.jpg)/(逐光而上)
+[UpXuu](https://upxuu.com)+(https://image.luming.cool/i/2026/08/17/6a82721a3b068.webp)/(逐光而上。)
 
 [岚汐の小窝](https://blog.lanxis.top/)+(https://pic.lingqi.vip/logo11.jpg)/(一个兽兽的小树屋~)
 

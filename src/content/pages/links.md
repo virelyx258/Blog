@@ -22,6 +22,8 @@ slug: "links"
 
 [老陈爱刷机](https://blog.chenyuxia.com/)+(https://image.luming.cool/i/2026/06/21/6a37fdaf9c4c7.webp)/(你可以在这里找到一些好玩的东西。)
 
+[KFACBT](https://blog.gytxtx.top/)+(https://image.luming.cool/i/2026/06/22/6a3957de12346.webp)/(主要分享一些技术文章，偶尔也会发一些日常。)
+
 [往日信笺](https://www.xingmail.cn/)+(https://image.luming.cool/i/2026/06/22/6a39570f5a1b6.webp)/(一个Xing分享自己的故事的地方)
 
 [Horean's Blog](https://blog.hxrch.top)+(https://image.luming.cool/i/2026/06/21/6a37f998e92c8.webp)/(Spread the knowledge wisely & widely.)
@@ -42,13 +44,13 @@ slug: "links"
 
 [蒋音象](https://jiangyx.org/)+(https://image.luming.cool/i/2026/07/11/6a51235da5835.webp)/(以文会友，以友辅仁。)
 
-[摸鱼小窝](https://moyu.plus/)+(https://moyu.plus/logo.webp)/(代码路上雾茫茫。)
+[摸鱼小窝](https://blog.aistu.cn)+(https://blog.aistu.cn/logo.webp)/(代码路上雾茫茫。)
+
+[UpXuu](https://upxuu.com)+(https://upxuu.com/images/me.jpg)/(逐光而上)
 
 [岚汐の小窝](https://blog.lanxis.top/)+(https://pic.lingqi.vip/logo11.jpg)/(一个兽兽的小树屋~)
 
 [睿朗的秘密基地](https://blog.iamcrl.cn/)+(https://iamcrl.cn/avatar.jpg)/(Ruilang's Blog)
-
-[茶茶の博客](https://www.ituxin.top)+(https://image.luming.cool/i/2026/08/14/6a7e9351d2df0.webp)/(茶茶的个人博客，主要分享网络安全、网络工程、软件工程方面技术文章。)
 
 [云晓晨](https://blog.kaiqi.wang)+(https://www.kaiqi.wang/favicon.ico)/(未来路远，勿忘初心。)
 
@@ -74,8 +76,6 @@ slug: "links"
 
 [小景](https://jingyuan-zheng.github.io/zh/)+(https://image.luming.cool/i/2026/07/23/6a62284fa496c.webp)/(随心分享有趣的技术、开源项目与生活记录。)
 
-[Rain](https://rainzt.cn/)+(https://image.luming.cool/i/2026/08/14/6a7e92fda6bce.webp)/(物物而不物于物，念念而不念于念)
-
 [XXY の博客](https://blog.xuxiny.top)+(https://q1.qlogo.cn/headimg_dl?dst_uin=3429924750&spec=5)/(爱折腾，爱分享。)
 
 [圆周率](https://www.yuanzj.top)+(https://image.luming.cool/i/2026/06/21/6a37fa3752ea4.webp)/(My Blog!)
@@ -83,8 +83,6 @@ slug: "links"
 [MC_Kero blog](https://blog.mckero.com/)+(https://img.cdn1.vip/i/68f3418995084_1760772489.png)/(依稀当年泪目干。)
 
 [Levi](https://leviqin.top/)+(https://image.luming.cool/i/2026/06/22/6a3957bedea05.webp)/(一个有意思的Blog，工作记录，日常分享，欢迎访问。)
-
-[KFACBT](https://blog.gytxtx.top/)+(https://image.luming.cool/i/2026/06/22/6a3957de12346.webp)/(主要分享一些技术文章，偶尔也会发一些日常。)
 
 [重生云](https://xiaochopin.github.io/)+(https://weavatar.com/avatar/a10109bb266cc4eebc8d7992a4977a0c?s=200)/(明月装饰了你的窗，你装饰了别人的梦。)
 

@@ -50,6 +50,8 @@ slug: "links"
 
 [UpXuu](https://upxuu.com)+(https://image.luming.cool/i/2026/08/17/6a82721a3b068.webp)/(逐光而上。)
 
+[没吃饱的天镜镜](https://blog.8765777.xyz/)+(https://blogr2.8765777.xyz/assets/my/7590A261E0E39A642ABF4873E89EAFF9.jpg)/(诺贝尔奖关注者，文学奖读者)
+
 [岚汐の小窝](https://blog.lanxis.top/)+(https://pic.lingqi.vip/logo11.jpg)/(一个兽兽的小树屋~)
 
 [睿朗的秘密基地](https://blog.iamcrl.cn/)+(https://iamcrl.cn/avatar.jpg)/(Ruilang's Blog)

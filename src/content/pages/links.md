@@ -42,6 +42,8 @@ slug: "links"
 
 [Pinpe 的云端](https://pinpe.top/)+(https://image.luming.cool/i/2026/06/22/6a39568f421dd.webp)/(一片属于自己的云朵。)
 
+[朝朝听雨](https://rainzt.cn/)+(https://rainzt.cn/zzty.png)/(物物而不物于物，念念而不念于念。)
+
 [蒋音象](https://jiangyx.org/)+(https://image.luming.cool/i/2026/07/11/6a51235da5835.webp)/(以文会友，以友辅仁。)
 
 [摸鱼小窝](https://blog.aistu.cn)+(https://blog.aistu.cn/logo.webp)/(代码路上雾茫茫。)

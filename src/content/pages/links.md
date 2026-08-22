@@ -56,6 +56,8 @@ slug: "links"
 
 [睿朗的秘密基地](https://blog.iamcrl.cn/)+(https://iamcrl.cn/avatar.jpg)/(Ruilang's Blog)
 
+[茶茶の博客](https://www.ituxin.top)+(https://image.luming.cool/i/2026/08/14/6a7e9351d2df0.webp)/(茶茶的个人博客，主要分享网络安全、网络工程、软件工程方面技术文章。)
+
 [云晓晨](https://blog.kaiqi.wang)+(https://www.kaiqi.wang/favicon.ico)/(未来路远，勿忘初心。)
 
 [柳橙睿](https://www.liuchengrui.cn/)+(https://image.luming.cool/i/2026/06/22/6a395765069a2.webp)/(其实我是一个假柳橙。)

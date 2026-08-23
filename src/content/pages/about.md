@@ -17,6 +17,8 @@ comments: false
 
 性格偏多疑敏感，善于察觉身边人的微小情绪。平时喜欢独处，不喜欢与任何人一起逛街、看电影，因为我感觉受到束缚。
 
+精神洁癖，容易有
+
 如果你想知道我是一个怎样的人，请随便翻翻[我的文章](/archives)，里面写的比我说的更清楚。
 
 ### 联系
@@ -25,7 +27,9 @@ comments: false
 
 GitHub：[virelyx258](https://github.com/virelyx258)
 
-请不要试图添加我的即时通讯账户。无论有什么想探讨的，随时欢迎电邮交流。
+云仓：[riseforever2026](https://src.luming.cool/riseforever2026)
+
+请不要添加我的即时通讯账户。无论有什么想探讨的，随时欢迎电邮交流。
 
 ### 使用的工具
 
@@ -127,8 +131,6 @@ GitHub：[virelyx258](https://github.com/virelyx258)
 
 毅融盾是融合了网宿与白山 CDN 资源的企业级 CDN，针对未备案域名进行特调，提供卓越的中国大陆访问速度。且没有三六九等的套餐配置，仅按流量计费，出售的是流量包。
 
-毅融盾是我所在公司的产品，内部团队可免费使用，不限流量。如果你是外部用户，也可以通过[赞助计划](https://blog.hydun.com/9.html)免费获取 CDN 服务。
-
 ### 主题
 
 使用我与 AI 协作制作的 Astro 主题 Eidolon。
@@ -139,7 +141,7 @@ GitHub：[virelyx258](https://github.com/virelyx258)
 
 仔细想想，发现我们其实不是同一个赛道。我做的是 Astro 主题，受众是 Astro 用户，不耽误 Typecho 主题的销售。况且，并不是所有 Typecho 用户都能无感切换到静态博客。
 
-所以，本主题准备开源。
+所以，~~本主题准备开源。~~主题已开源，[点我跳转仓库](https://src.luming.cool/riseforever2026/Eidolon)。
 
 [collapse title="在此之前"]
 
@@ -178,6 +180,14 @@ GitHub：[virelyx258](https://github.com/virelyx258)
 [RStatus](https://github.com/virelyx258/RStatus)+(https://image.luming.cool/i/2026/08/08/6a7729950adcd.webp)/(公开你的互联网在线状态)
 
 [火苗调试器](https://github.com/virelyx258/Flame-Debugger)+(https://image.luming.cool/i/2026/08/08/6a772a0218e74.webp)/(适用于网课软件的调试工具)
+
+[/tools]
+
+[tools title = "参与/发起的项目"]
+
+[固件修改计划](https://qm.qq.com/q/C2hFEcdv5S)+(https://image.luming.cool/i/2026/08/23/6a8a4b00047f4.webp)/(小米可穿戴设备固件修改)
+
+[Route2N](https://www.route2n.online)+(https://image.luming.cool/i/2026/08/23/6a8a4b361dde9.webp)/(AI API 中转站)
 
 [/tools]
 

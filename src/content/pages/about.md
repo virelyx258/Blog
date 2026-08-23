@@ -145,7 +145,7 @@ GitHub：[virelyx258](https://github.com/virelyx258)
 
 仔细想想，发现我们其实不是同一个赛道。我做的是 Astro 主题，受众是 Astro 用户，不耽误 Typecho 主题的销售。况且，并不是所有 Typecho 用户都能无感切换到静态博客。
 
-所以，~~本主题准备开源。~~主题已开源，[点我跳转仓库](https://src.luming.cool/riseforever2026/Eidolon)。
+所以，~~本主题准备开源。~~ 主题已开源，[点我跳转仓库](https://src.luming.cool/riseforever2026/Eidolon)。
 
 [collapse title="在此之前"]
 

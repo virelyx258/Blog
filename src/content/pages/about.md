@@ -11,15 +11,11 @@ comments: false
 
 ## 关于⌈我⌋
 
-我是 RiseForever，生于河南。
+我是 RiseForever，真名路明，生于河南。
 
-准高二了。喜欢开发软件、科技数码。是一名 Xiaomi Vela 快应用开发者。
+准高二了。
 
-性格偏多疑敏感，善于察觉身边人的微小情绪。平时喜欢独处，不喜欢与任何人一起逛街、看电影，因为我感觉受到束缚。
-
-精神洁癖，容易有
-
-如果你想知道我是一个怎样的人，请随便翻翻[我的文章](/archives)，里面写的比我说的更清楚。
+精神洁癖，多疑敏感，喜欢独处。
 
 ### 联系
 
@@ -32,6 +28,8 @@ GitHub：[virelyx258](https://github.com/virelyx258)
 请不要添加我的即时通讯账户。无论有什么想探讨的，随时欢迎电邮交流。
 
 ### 使用的工具
+
+[collapse]
 
 [tools title = "设计"]
 [Canva](https://www.canva.cn)+(https://image.luming.cool/i/2026/08/07/6a75ba231df9b.webp)/(图像设计)
@@ -58,6 +56,8 @@ GitHub：[virelyx258](https://github.com/virelyx258)
 [Debian 13](https://www.debian.org/index.zh-cn.html)+(https://image.luming.cool/i/2026/08/07/6a75c2db6a6e9.webp)/(备用系统)
 [/tools]
 
+[/collapse]
+
 ## 关于⌈这个网站⌋
 
 严格来说，这个网站的建立时间是在 2024 年 10 月。因为我在那时开始转型记录生活。
@@ -70,16 +70,16 @@ GitHub：[virelyx258](https://github.com/virelyx258)
 
 ### 域名
 
-起初用的是 riseforever.cn，因为初中时我很想要一个有美好寓意的域名，想了很多，结果只有这个域名可注册。于是我选了它，网名也跟着取成了“RiseForever”。
+起初用的是 riseforever.cn。因为想要有美好寓意，想了很多，缺只有这个域名可注册。我就这样选了它，网名也跟着取成了“RiseForever”。
 
-初三时，我觉得 riseforever.cn 太长了，且 .CN 当时仍不支持隐私保护，便想着换个域名。当时朋友买了一个“mnb.cool”，让我看到了 .cool 这个后缀。过了几天，我在学校灵机一动——用自己的名字拼写“luming”做前缀，使用“.cool”后缀，这样搭配在视觉上非常和谐。
+初三时，我觉得 riseforever.cn 太长了，且 .CN 当时仍不支持免费隐私保护，便起了换域名的念头。当时朋友买了一个“mnb.cool”，让我看到了 .cool 这个后缀。过了几天，我在学校灵机一动——用自己的名字拼写“luming”做前缀，使用“.cool”后缀，这样搭配在视觉上非常和谐，双拼也很好记。
 
 那周周末，我回家一搜 luming.cool ——未注册，于是赶紧注册了它。
 
 |       注册商 | 帝思普（腾讯云）                                                                                             |
 | -------------: | :------------------------------------------------------------------------------------------------------------- |
 | 首次购入价格 | ￥48                                                                                                         |
-|     续费价格 | ￥65                                                                                                         |
+|     续费价格 | ￥105（原 ¥65）                                                                                                |
 |     域名年龄 | ![域名年龄徽章](https://yisi.yun/api/badge/domain-age/luming.cool?theme=blue&lang=zh&size=medium&mode=light) |
 
 [collapse title="riseforever.cn 信息"]
@@ -92,7 +92,7 @@ GitHub：[virelyx258](https://github.com/virelyx258)
 
 [/collapse]
 
-目前保持着 riseforever.cn 和 luming.cool 双域名持有，每年续费大约需要￥103。
+目前保持着 riseforever.cn 和 luming.cool 双域名持有，每年续费大约需要￥143。
 
 ### 服务器
 
@@ -107,61 +107,9 @@ GitHub：[virelyx258](https://github.com/virelyx258)
 | 硬盘 | 30GB SSD                                     |
 | 带宽 | 100 Mbps（峰值）                             |
 
-[collapse title="2026 年 1 月 - 6 月"]
-7iNet 香港特惠秒杀机，￥9.9/月，炸夸响。后因其性能太过诡异而被更换。
-
-|  CPU | 2H E5-2698 v4                         |
-| -----: | :-------------------------------------- |
-| 内存 | 2G                                    |
-| 硬盘 | 40GB SSD（写入 43MB/s，读取 156MB/s） |
-| 带宽 | 10 Mbps（不限流量）                   |
-
-[/collapse]
-
-[collapse title="2026 年以前"]
-腾讯云新加坡服务器，￥99/年，买了两年，参加活动又送了三个月。后因 IP 线路更换导致延迟过高而被更换。
-
-|  CPU | 2H Platinum 8255C                      |
-| -----: | :--------------------------------------- |
-| 内存 | 2G                                     |
-| 硬盘 | 50GB SSD（写入 338MB/s，读取 6.2GB/s） |
-| 带宽 | 30 Mbps（月限流  1TB）                 |
-
-[/collapse]
-
-### CDN
-
-使用[毅融盾](https://rcdn.hydun.com/)进行图床加速。
-
-毅融盾是融合了网宿与白山 CDN 资源的企业级 CDN，针对未备案域名进行特调，提供卓越的中国大陆访问速度。且没有三六九等的套餐配置，仅按流量计费，出售的是流量包。
-
 ### 主题
 
-使用我与 AI 协作制作的 Astro 主题 Eidolon。
-
-它极大程度上复刻了 Typecho 主题 Mirages 的风格和功能，又在此基础上使用了更先进的 TailWind CSS，使得站点响应速度更加优秀。
-
-~~因为 Mirages 是一款付费主题，如果贸然开源会影响到原主题的销售，且本站主题仍处于开发状态，所以本主题暂不开源。~~
-
-仔细想想，发现我们其实不是同一个赛道。我做的是 Astro 主题，受众是 Astro 用户，不耽误 Typecho 主题的销售。况且，并不是所有 Typecho 用户都能无感切换到静态博客。
-
-所以，~~本主题准备开源。~~ 主题已开源，[点我跳转仓库](https://src.luming.cool/riseforever2026/Eidolon)。
-
-[collapse title="在此之前"]
-
-使用 [Mirages](https://get233.com/archives/mirages-intro.html)，一款阅读体验优秀的单栏 Typecho 主题。
-
-我是在[白熊阿丸的小屋](https://blog.bxaw.name)首次体验这款主题，发现它支持用户手动切换衬线/非衬线字体、字体大小，这能使不同口味的用户都获得最适合自己的阅读体验。并且，这款主题在我的 MacBook Pro 2013 上表现得非常流畅。
-
-于是在 2026 年 4 月，我选择购入并使用它。
-
-[/collapse]
-
-### 使用的第三方服务
-
-使用 [WeAvatar](https://weavatar.com/) 作为评论区头像系统。
-
-使用 [LUM ALBUM](https://image.luming.cool) 作为图床。（~~这也算第三方服务嘛~~）
+[点我跳转开源仓库](https://src.luming.cool/riseforever2026/Eidolon)
 
 ### 备案
 
@@ -197,6 +145,6 @@ GitHub：[virelyx258](https://github.com/virelyx258)
 
 ## 关于⌈版权协议⌋
 
-如果没有特殊说明，本站文章都是原创，基于 [CC-BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh-hans) 协议公开。
+如果没有特殊说明，本站文章都是原创，基于 [CC-BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans) 协议公开。
 
-转载请注明原文链接。[协议](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh-hans)原则上不允许对本站文章的再混合、转换、或者二次创作。如果有必要二创，请邮件沟通。
+转载/演绎请注明原文链接。

@@ -29,7 +29,7 @@ GitHub：[virelyx258](https://github.com/virelyx258)
 
 ### 使用的工具
 
-[collapse]
+[collapse title = "工具列表"]
 
 [tools title = "设计"]
 [Canva](https://www.canva.cn)+(https://image.luming.cool/i/2026/08/07/6a75ba231df9b.webp)/(图像设计)

@@ -56,7 +56,7 @@ slug: "links"
 
 [岚汐の小窝](https://blog.lanxis.top/)+(https://pic.lingqi.vip/logo11.jpg)/(一个兽兽的小树屋~)
 
-[睿朗的秘密基地](https://blog.iamcrl.cn/)+(https://iamcrl.cn/avatar.jpg)/(Ruilang's Blog)
+[睿朗的小窝](https://notes.iamcrl.cn/)+(https://iamcrl.cn/avatar.jpg)/(Ruilang's Blog)
 
 [茶茶の博客](https://www.ituxin.top)+(https://image.luming.cool/i/2026/08/14/6a7e9351d2df0.webp)/(茶茶的个人博客，主要分享网络安全、网络工程、软件工程方面技术文章。)
 

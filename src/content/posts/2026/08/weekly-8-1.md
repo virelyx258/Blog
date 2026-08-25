@@ -1,9 +1,11 @@
 ---
-title: "周度总结 8-1：中转站、域名"
-pubDate: "2026-08-23T21:55:25.724Z"
-cover: "https://image.luming.cool/i/2026/08/23/6a8ab1eb89d84.webp"
-categories: ['生活']
-tags: ['生活']
+title: 周记 8-1：中转站、域名
+pubDate: 2026-08-23T21:55:25.724Z
+cover: https://image.luming.cool/i/2026/08/23/6a8ab1eb89d84.webp
+categories:
+  - 生活
+tags:
+  - 生活
 draft: false
 comments: true
 ---

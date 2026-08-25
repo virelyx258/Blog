@@ -2,7 +2,7 @@
 title: "友人"
 description: "友谊地久天长"
 pubDate: "2026-07-22T01:28:00.000Z"
-cover: "https://image.luming.cool/i/2026/08/25/6a8d92c28ab02.webp"
+cover: "https://image.luming.cool/i/2026/08/25/6a8d95c4195c9.webp"
 slug: "links"
 ---
 

@@ -1,5 +1,5 @@
 ---
-cover: "https://image.luming.cool/i/2026/08/25/6a8d95c50c750.webp"
+cover: "https://image.luming.cool/i/2026/08/25/6a8d95c4195c9.webp"
 title: "关于"
 pubDate: "2026-07-22T01:28:00.000Z"
 updatedDate: "2026-07-27T05:26:00.000Z"

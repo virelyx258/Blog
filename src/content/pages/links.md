@@ -20,6 +20,8 @@ slug: "links"
 
 [小改学习志](https://www.haoyu233.com/)+(https://weavatar.com/avatar/14e584196d31262ea144ab4d75d4c083?s=200)/(行到水穷处，坐看云起时。)
 
+[lcrworld's blog](https://lcrworld.xyz)+(https://lcrworld.xyz/default-avatar.jpeg)/(lcrworld的个人博客，分享文章，记录日常)
+
 [KFACBT](https://blog.gytxtx.top/)+(https://image.luming.cool/i/2026/06/22/6a3957de12346.webp)/(主要分享一些技术文章，偶尔也会发一些日常。)
 
 [往日信笺](https://www.xingmail.cn/)+(https://image.luming.cool/i/2026/06/22/6a39570f5a1b6.webp)/(一个Xing分享自己的故事的地方)

@@ -52,12 +52,12 @@ const { title, description, image, type, noindex, math, navbarOverlay = false, h
 
       const applyPanguSpacing = () => {
         document.querySelectorAll('pre, code, .line').forEach((el) => el.classList.add('no-pangu-spacing'));
-        document.querySelectorAll('.prose p, .prose li, .prose blockquote, .prose h1, .prose h2, .prose h3, .prose h4').forEach((el) => {
-          pangu.spacingNode(el);
-        });
+        pangu.spacingNode(document.body);
       };
 
+      pangu.taskScheduler.config.enabled = false;
       applyPanguSpacing();
+      pangu.autoSpacingPage({ pageDelayMs: 0, nodeDelayMs: 0, nodeMaxWaitMs: 100 });
       document.addEventListener('astro:page-load', applyPanguSpacing);
 
       const initCodeLineNumbers = () => {

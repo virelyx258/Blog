@@ -20,8 +20,6 @@ slug: "links"
 
 [小改学习志](https://www.haoyu233.com/)+(https://weavatar.com/avatar/14e584196d31262ea144ab4d75d4c083?s=200)/(行到水穷处，坐看云起时。)
 
-[老陈爱刷机](https://blog.chenyuxia.com/)+(https://image.luming.cool/i/2026/06/21/6a37fdaf9c4c7.webp)/(你可以在这里找到一些好玩的东西。)
-
 [KFACBT](https://blog.gytxtx.top/)+(https://image.luming.cool/i/2026/06/22/6a3957de12346.webp)/(主要分享一些技术文章，偶尔也会发一些日常。)
 
 [往日信笺](https://www.xingmail.cn/)+(https://image.luming.cool/i/2026/06/22/6a39570f5a1b6.webp)/(一个Xing分享自己的故事的地方)
@@ -74,13 +72,17 @@ slug: "links"
 
 ## 技术类博主
 
-[新锐博客](https://blog.xrbk.cn/)+(https://blog.xrbk.cn/favicon.png)/(记录学习与分享资源。)
+[RubbishZ](https://rubbishz.com/)+(https://image.luming.cool/i/2026/08/26/6a8ee3a108b7b.webp)/(实力非凡的 Vela 快应用创作者。)
+
+[老陈爱刷机](https://blog.chenyuxia.com/)+(https://image.luming.cool/i/2026/06/21/6a37fdaf9c4c7.webp)/(抖音博主，10 后技术大蛇。)
 
 [10 科技说](https://www.tech10.cn/)+(https://image.luming.cool/i/2026/08/06/6a74af0519e25.webp)/(10科技说的个人主页。)
 
+[新锐博客](https://blog.xrbk.cn/)+(https://blog.xrbk.cn/favicon.png)/(记录学习与分享资源。)
+
 [米雅乐](https://blog.miyale.cc/)+(https://image.luming.cool/i/2026/07/23/6a619b7273d45.webp)/(Coder & Designer.)
 
-[LR.C](https://bbslrc.vxni.ink/)+(https://image.luming.cool/i/2026/06/21/6a37ede8eaad4.webp)/(一位 Xiaomi Vela 快应用开发者。)
+[LR.C](https://bbslrc.vxni.ink/)+(https://image.luming.cool/i/2026/06/21/6a37ede8eaad4.webp)/(一位 Xiaomi Vela 快应用创作者。)
 
 [小景](https://jingyuan-zheng.github.io/zh/)+(https://image.luming.cool/i/2026/07/23/6a62284fa496c.webp)/(随心分享有趣的技术、开源项目与生活记录。)
 

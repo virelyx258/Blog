@@ -31,7 +31,7 @@ export const siteConfig: SiteConfig = {
     enabled: true,
     title: '路明笔记',
     subtitle: '一名高中生的技术与生活博客',
-    image: 'https://image.luming.cool/i/2026/07/26/6a6628967fe03.webp',
+    image: 'https://cn.bing.com/th?id=OHR.AurorasIceland_ZH-CN9781322454_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp',
     position: 'center center',
     desktopHeightVh: 55,
     mobileHeightVh: 40,

@@ -373,14 +373,21 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
     content: string;
     author: string;
     siteName: string;
-    favicon: string;
+    favicons: string[];
     type: string;
   };
 
   type WebmentionClientState = {
     bound?: boolean;
     controller?: AbortController;
+    metadataCache?: Map<string, Promise<SourceMetadata | null>>;
     observer?: IntersectionObserver;
+  };
+
+  type SourceMetadata = {
+    title: string;
+    siteName: string;
+    favicon: string;
   };
 
   declare global {
@@ -390,6 +397,7 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
   }
 
   const state = window.__miragesWebmentions ??= {};
+  const metadataCache = state.metadataCache ??= new Map<string, Promise<SourceMetadata | null>>();
 
   const getString = (record: Record<string, unknown>, key: string) => {
     const value = record[key];
@@ -421,6 +429,12 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
     return (parsed.body.textContent ?? '').replace(/\s+/g, ' ').trim().slice(0, 1200);
   };
 
+  const objectValue = (value: unknown) => (
+    value && typeof value === 'object' && !Array.isArray(value)
+      ? value as Record<string, unknown>
+      : null
+  );
+
   const normalizeMention = (value: unknown): WebmentionRecord | null => {
     if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
     const record = value as Record<string, unknown>;
@@ -434,7 +448,11 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
     const favicon = safeAsset(
       getString(record, 'favicon') || getString(record, 'site_icon') || getString(record, 'icon'),
       source
-    ) || new URL('/favicon.ico', source).href;
+    );
+    const favicons = Array.from(new Set([
+      favicon,
+      `https://favicon.im/${encodeURIComponent(source.hostname)}?larger=true`
+    ].filter(Boolean)));
     return {
       id: getString(record, 'id'),
       source: source.href,
@@ -444,7 +462,7 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
       content: plainText(getString(record, 'content')),
       author: author || source.hostname,
       siteName,
-      favicon,
+      favicons,
       type: getString(record, 'type').toLowerCase()
     };
   };
@@ -467,6 +485,46 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
 
   const displayTitle = (mention: WebmentionRecord) => mention.title || mention.siteName || mention.hostname;
 
+  const sourceMetadata = (mention: WebmentionRecord) => {
+    const cached = metadataCache.get(mention.source);
+    if (cached) return cached;
+
+    const url = new URL('https://api.microlink.io/');
+    url.searchParams.set('url', mention.source);
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 8000);
+    const request = fetch(url, {
+      headers: { Accept: 'application/json' },
+      signal: controller.signal
+    }).then(async (response): Promise<SourceMetadata | null> => {
+      if (!response.ok) return null;
+      const payload = objectValue(await response.json());
+      const data = objectValue(payload?.data);
+      if (!data) return null;
+      const logo = objectValue(data.logo);
+      return {
+        title: plainText(typeof data.title === 'string' ? data.title : ''),
+        siteName: plainText(typeof data.publisher === 'string' ? data.publisher : ''),
+        favicon: safeAsset(typeof logo?.url === 'string' ? logo.url : '', new URL(mention.source))
+      };
+    }).catch(() => null).finally(() => {
+      window.clearTimeout(timeout);
+    });
+    metadataCache.set(mention.source, request);
+    return request;
+  };
+
+  const enrichMention = async (mention: WebmentionRecord) => {
+    const metadata = await sourceMetadata(mention);
+    if (!metadata) return mention;
+    return {
+      ...mention,
+      title: mention.title || metadata.title,
+      siteName: metadata.siteName || mention.siteName,
+      favicons: Array.from(new Set([metadata.favicon, ...mention.favicons].filter(Boolean)))
+    };
+  };
+
   const sourceLink = (mention: WebmentionRecord, className: string) => {
     const link = document.createElement('a');
     link.className = className;
@@ -486,7 +544,6 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
     fallback.textContent = initialFor(mention.siteName || mention.hostname);
 
     const image = document.createElement('img');
-    image.src = mention.favicon;
     image.alt = '';
     image.loading = 'lazy';
     image.decoding = 'async';
@@ -494,11 +551,23 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
     image.addEventListener('load', () => {
       wrapper.dataset.iconLoaded = 'true';
     });
+    let faviconIndex = 0;
     image.addEventListener('error', () => {
+      faviconIndex += 1;
+      const nextFavicon = mention.favicons[faviconIndex];
+      if (nextFavicon) {
+        image.src = nextFavicon;
+        return;
+      }
       image.remove();
     });
 
-    wrapper.append(fallback, image);
+    wrapper.append(fallback);
+    const firstFavicon = mention.favicons[0];
+    if (firstFavicon) {
+      image.src = firstFavicon;
+      wrapper.append(image);
+    }
     return wrapper;
   };
 
@@ -627,6 +696,10 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
           ? data.map(normalizeMention).filter((mention): mention is WebmentionRecord => mention !== null)
           : [];
         renderMentions(root, mentions);
+        if (!mentions.length) return;
+        void Promise.all(mentions.map(enrichMention)).then((enriched) => {
+          if (root.isConnected) renderMentions(root, enriched);
+        });
       })
       .catch(() => {
         if (controller.signal.aborted || !root.isConnected) return;

@@ -1,9 +1,11 @@
 ---
-title: "八月记"
-pubDate: "2026-08-27T06:42:43.447Z"
-categories: ['生活']
-tags: ['总结']
-draft: false
+title: 八月记
+pubDate: 2026-08-27T06:42:43.447Z
+categories:
+  - 生活
+tags:
+  - 总结
+draft: true
 ---
 
 ## 序

@@ -26,7 +26,13 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
 >
   <h2 id="webmentions-title">WebMention</h2>
 
-  <p class="webmentions-status" data-webmentions-status role="status">正在读取站外回应...</p>
+  <div class="webmentions-loading" data-webmentions-loading role="status" aria-label="正在读取 WebMention">
+    <svg class="webmentions-loading-spinner" viewBox="25 25 50 50" aria-hidden="true">
+      <circle class="webmentions-loading-path" cx="50" cy="50" r="20" fill="none"></circle>
+    </svg>
+    <span>Loading...</span>
+  </div>
+  <p class="webmentions-status" data-webmentions-status role="status" hidden></p>
 
   <div class="webmentions-reactions" data-webmentions-reactions hidden>
     <div data-webmentions-reaction-group="like" hidden>
@@ -80,9 +86,55 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
     font-size: .86rem;
   }
 
+  .webmentions-loading {
+    display: flex;
+    min-height: 5rem;
+    align-items: center;
+    justify-content: center;
+    gap: .625rem;
+    color: var(--color-muted);
+    font-size: .86rem;
+  }
+
+  .webmentions-loading[hidden] {
+    display: none;
+  }
+
+  .webmentions-loading-spinner {
+    width: 2.625rem;
+    height: 2.625rem;
+    animation: webmentions-loading-rotate 2s linear infinite;
+  }
+
+  .webmentions-loading-path {
+    animation: webmentions-loading-dash 1.5s ease-in-out infinite;
+    stroke: var(--color-accent);
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    stroke-width: 2;
+  }
+
   .webmentions-status {
     margin: 0;
     padding-block: .25rem 1rem;
+  }
+
+  @keyframes webmentions-loading-rotate {
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes webmentions-loading-dash {
+    0% { stroke-dasharray: 1, 200; stroke-dashoffset: 0; }
+    50% { stroke-dasharray: 90, 150; stroke-dashoffset: -40px; }
+    100% { stroke-dasharray: 90, 150; stroke-dashoffset: -120px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .webmentions-loading-spinner,
+    .webmentions-loading-path {
+      animation-duration: 3s;
+    }
   }
 
   .webmentions-reactions {
@@ -283,6 +335,7 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
   type WebmentionClientState = {
     bound?: boolean;
     controller?: AbortController;
+    observer?: IntersectionObserver;
   };
 
   declare global {
@@ -413,6 +466,7 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
   };
 
   const renderMentions = (root: HTMLElement, mentions: WebmentionRecord[]) => {
+    const loading = root.querySelector<HTMLElement>('[data-webmentions-loading]');
     const status = root.querySelector<HTMLElement>('[data-webmentions-status]');
     const likeGroup = root.querySelector<HTMLElement>('[data-webmentions-reaction-group="like"]');
     const repostGroup = root.querySelector<HTMLElement>('[data-webmentions-reaction-group="repost"]');
@@ -421,7 +475,7 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
     const likeList = root.querySelector<HTMLElement>('[data-webmentions-like-list]');
     const repostList = root.querySelector<HTMLElement>('[data-webmentions-repost-list]');
     const list = root.querySelector<HTMLOListElement>('[data-webmentions-list]');
-    if (!status || !likeGroup || !repostGroup || !reactions || !discussion || !likeList || !repostList || !list) return;
+    if (!loading || !status || !likeGroup || !repostGroup || !reactions || !discussion || !likeList || !repostList || !list) return;
 
     const likes = mentions.filter((mention) => kindOf(mention) === 'like');
     const reposts = mentions.filter((mention) => kindOf(mention) === 'repost');
@@ -442,18 +496,19 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
     repostGroup.hidden = reposts.length === 0;
     reactions.hidden = likes.length + reposts.length === 0;
     discussion.hidden = discussions.length === 0;
+    loading.hidden = true;
     status.textContent = mentions.length ? '' : '暂时还没有站外回应。';
     status.hidden = mentions.length > 0;
   };
 
-  const loadCurrentWebmentions = () => {
-    const root = document.querySelector<HTMLElement>('[data-webmentions-root]');
-    if (!root || root.dataset.webmentionsBound) return;
-    root.dataset.webmentionsBound = 'true';
+  const fetchWebmentions = (root: HTMLElement) => {
+    if (root.dataset.webmentionsLoaded) return;
+    root.dataset.webmentionsLoaded = 'true';
+    const loading = root.querySelector<HTMLElement>('[data-webmentions-loading]');
     const status = root.querySelector<HTMLElement>('[data-webmentions-status]');
     const getEndpoint = root.dataset.getEndpoint;
     const target = root.dataset.target;
-    if (!status || !getEndpoint || !target) return;
+    if (!loading || !status || !getEndpoint || !target) return;
 
     state.controller?.abort();
     const controller = new AbortController();
@@ -475,8 +530,29 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
       })
       .catch(() => {
         if (controller.signal.aborted || !root.isConnected) return;
+        loading.hidden = true;
         status.textContent = '站外回应暂时无法读取。';
+        status.hidden = false;
       });
+  };
+
+  const loadCurrentWebmentions = () => {
+    const root = document.querySelector<HTMLElement>('[data-webmentions-root]');
+    if (!root || root.dataset.webmentionsBound) return;
+    root.dataset.webmentionsBound = 'true';
+
+    state.observer?.disconnect();
+    if (!('IntersectionObserver' in window)) {
+      fetchWebmentions(root);
+      return;
+    }
+
+    state.observer = new IntersectionObserver((entries, observer) => {
+      if (!entries.some((entry) => entry.isIntersecting)) return;
+      observer.disconnect();
+      fetchWebmentions(root);
+    }, { rootMargin: '400px 0px' });
+    state.observer.observe(root);
   };
 
   const submitWebmention = (form: HTMLFormElement) => {
@@ -520,7 +596,10 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
       submitWebmention(form);
     });
     document.addEventListener('astro:page-load', loadCurrentWebmentions);
-    document.addEventListener('astro:before-swap', () => state.controller?.abort());
+    document.addEventListener('astro:before-swap', () => {
+      state.observer?.disconnect();
+      state.controller?.abort();
+    });
   }
 
   loadCurrentWebmentions();

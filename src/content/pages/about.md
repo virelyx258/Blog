@@ -72,7 +72,7 @@ X：[luming_cool](https://x.com/luming_cool)
 
 ### 域名
 
-起初用的是 riseforever.cn。因为想要有美好寓意，想了很多，缺只有这个域名可注册。我就这样选了它，网名也跟着取成了“RiseForever”。
+起初用的是 riseforever.cn。当时想要有个美好寓意，想了很多，只有这个域名可用。于是匆匆注册，网名也跟着取成了“RiseForever”。
 
 初三时，我觉得 riseforever.cn 太长了，且 .CN 当时仍不支持免费隐私保护，便起了换域名的念头。当时朋友买了一个“mnb.cool”，让我看到了 .cool 这个后缀。过了几天，我在学校灵机一动——用自己的名字拼写“luming”做前缀，使用“.cool”后缀，这样搭配在视觉上非常和谐，双拼也很好记。
 

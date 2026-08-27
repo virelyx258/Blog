@@ -175,6 +175,42 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
     text-decoration: none;
   }
 
+  :global(.webmention-site-icon) {
+    position: relative;
+    display: grid;
+    width: 100%;
+    height: 100%;
+    place-items: center;
+    overflow: hidden;
+    border-radius: inherit;
+  }
+
+  :global(.webmention-site-icon img),
+  :global(.webmention-icon-fallback) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  :global(.webmention-site-icon img) {
+    z-index: 1;
+    padding: .3rem;
+    border-radius: inherit;
+    background: var(--color-surface);
+    object-fit: contain;
+    opacity: 0;
+  }
+
+  :global(.webmention-site-icon[data-icon-loaded='true'] img) {
+    opacity: 1;
+  }
+
+  :global(.webmention-icon-fallback) {
+    display: grid;
+    place-items: center;
+  }
+
   :global(.webmention-reaction:hover) {
     border-color: var(--color-accent);
     color: var(--color-accent-strong);
@@ -219,6 +255,12 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
     color: var(--color-text);
     font-size: .875rem;
     font-weight: 500;
+    overflow-wrap: anywhere;
+  }
+
+  :global(.webmention-host) {
+    color: var(--color-muted);
+    font-size: .75rem;
     overflow-wrap: anywhere;
   }
 
@@ -325,10 +367,13 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
   type WebmentionRecord = {
     id: string;
     source: string;
+    hostname: string;
     createdAt: string;
     title: string;
     content: string;
     author: string;
+    siteName: string;
+    favicon: string;
     type: string;
   };
 
@@ -360,6 +405,16 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
     }
   };
 
+  const safeAsset = (value: string, base: URL) => {
+    if (!value) return '';
+    try {
+      const url = new URL(value, base);
+      return url.protocol === 'http:' || url.protocol === 'https:' ? url.href : '';
+    } catch {
+      return '';
+    }
+  };
+
   const plainText = (value: string) => {
     if (!value) return '';
     const parsed = new DOMParser().parseFromString(value, 'text/html');
@@ -371,13 +426,25 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
     const record = value as Record<string, unknown>;
     const source = safeSource(getString(record, 'source'));
     if (!source) return null;
+    const author = plainText(getString(record, 'author_name'));
+    const siteName = plainText(getString(record, 'site_name'))
+      || plainText(getString(record, 'site_title'))
+      || author
+      || source.hostname;
+    const favicon = safeAsset(
+      getString(record, 'favicon') || getString(record, 'site_icon') || getString(record, 'icon'),
+      source
+    ) || new URL('/favicon.ico', source).href;
     return {
       id: getString(record, 'id'),
       source: source.href,
+      hostname: source.hostname,
       createdAt: getString(record, 'created_at'),
       title: plainText(getString(record, 'title')),
       content: plainText(getString(record, 'content')),
-      author: plainText(getString(record, 'author_name')) || source.hostname,
+      author: author || source.hostname,
+      siteName,
+      favicon,
       type: getString(record, 'type').toLowerCase()
     };
   };
@@ -398,6 +465,8 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
 
   const initialFor = (name: string) => Array.from(name.trim())[0]?.toLocaleUpperCase() ?? '@';
 
+  const displayTitle = (mention: WebmentionRecord) => mention.title || mention.siteName || mention.hostname;
+
   const sourceLink = (mention: WebmentionRecord, className: string) => {
     const link = document.createElement('a');
     link.className = className;
@@ -407,11 +476,38 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
     return link;
   };
 
+  const createSiteIcon = (mention: WebmentionRecord, className: string) => {
+    const wrapper = document.createElement('span');
+    wrapper.className = className;
+    wrapper.setAttribute('aria-hidden', 'true');
+
+    const fallback = document.createElement('span');
+    fallback.className = 'webmention-icon-fallback';
+    fallback.textContent = initialFor(mention.siteName || mention.hostname);
+
+    const image = document.createElement('img');
+    image.src = mention.favicon;
+    image.alt = '';
+    image.loading = 'lazy';
+    image.decoding = 'async';
+    image.referrerPolicy = 'no-referrer';
+    image.addEventListener('load', () => {
+      wrapper.dataset.iconLoaded = 'true';
+    });
+    image.addEventListener('error', () => {
+      image.remove();
+    });
+
+    wrapper.append(fallback, image);
+    return wrapper;
+  };
+
   const renderReaction = (mention: WebmentionRecord) => {
     const link = sourceLink(mention, 'webmention-reaction');
-    link.textContent = initialFor(mention.author);
-    link.title = mention.author;
-    link.setAttribute('aria-label', `${mention.author}：${kindLabel(kindOf(mention))}`);
+    const title = displayTitle(mention);
+    link.append(createSiteIcon(mention, 'webmention-site-icon'));
+    link.title = `${title} (${mention.hostname})`;
+    link.setAttribute('aria-label', `${title}：${kindLabel(kindOf(mention))}`);
     return link;
   };
 
@@ -420,18 +516,22 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
     const item = document.createElement('li');
     item.className = 'webmention-item';
 
-    const avatar = document.createElement('span');
-    avatar.className = 'webmention-avatar';
-    avatar.textContent = initialFor(mention.author);
-    avatar.setAttribute('aria-hidden', 'true');
+    const avatar = createSiteIcon(mention, 'webmention-avatar webmention-site-icon');
 
     const body = document.createElement('div');
     const meta = document.createElement('div');
     meta.className = 'webmention-meta';
 
     const author = sourceLink(mention, 'webmention-author');
-    author.textContent = mention.author;
+    author.textContent = displayTitle(mention);
     meta.append(author);
+
+    if (displayTitle(mention) !== mention.hostname) {
+      const host = document.createElement('span');
+      host.className = 'webmention-host';
+      host.textContent = mention.hostname;
+      meta.append(host);
+    }
 
     if (mention.createdAt) {
       const date = new Date(mention.createdAt);
@@ -450,7 +550,7 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
     meta.append(type);
     body.append(meta);
 
-    const text = mention.content || mention.title;
+    const text = mention.content;
     if (text) {
       const content = document.createElement('p');
       content.className = 'webmention-content';

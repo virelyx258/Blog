@@ -27,7 +27,7 @@ GitHub：[virelyx258](https://github.com/virelyx258)
 
 X：[luming_cool](https://x.com/luming_cool)
 
-**请不要添加我的国内即时通讯账户。**无论有什么想探讨的，随时欢迎电邮交流。
+**请不要添加我的国内即时通讯账户。** 无论有什么想探讨的，随时欢迎电邮交流。
 
 ### 使用的工具
 

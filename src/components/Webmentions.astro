@@ -22,6 +22,7 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
   data-get-endpoint={getEndpoint}
   data-receive-endpoint={receiveEndpoint}
   data-target={target}
+  data-site-origin={new URL(siteConfig.site.url).origin}
   data-pagefind-ignore="all"
 >
   <h2 id="webmentions-title">WebMention</h2>
@@ -485,37 +486,105 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
 
   const displayTitle = (mention: WebmentionRecord) => mention.title || mention.siteName || mention.hostname;
 
-  const sourceMetadata = (mention: WebmentionRecord) => {
-    const cached = metadataCache.get(mention.source);
-    if (cached) return cached;
+  const sourceSlug = (source: URL) => {
+    const segments = source.pathname.split('/').filter(Boolean);
+    const segment = segments.at(-1) ?? '';
+    try {
+      return decodeURIComponent(segment).replace(/\.(?:html?|php)$/i, '');
+    } catch {
+      return segment.replace(/\.(?:html?|php)$/i, '');
+    }
+  };
 
+  const isSlugTitle = (title: string, source: URL) => {
+    const normalized = (value: string) => value
+      .trim()
+      .toLocaleLowerCase()
+      .replace(/[\s_-]+/g, '-');
+    return Boolean(title) && normalized(title) === normalized(sourceSlug(source));
+  };
+
+  const parseSourceDocument = (html: string, base: URL): SourceMetadata => {
+    const sourceDocument = new DOMParser().parseFromString(html, 'text/html');
+    const metaContent = (selector: string) => (
+      sourceDocument.querySelector<HTMLMetaElement>(selector)?.content ?? ''
+    );
+    const faviconHref = sourceDocument.querySelector<HTMLLinkElement>(
+      'link[rel~="icon"], link[rel="shortcut icon"]'
+    )?.getAttribute('href') ?? '';
+    return {
+      title: plainText(metaContent('meta[property="og:title"]') || sourceDocument.title),
+      siteName: plainText(metaContent('meta[property="og:site_name"]')),
+      favicon: safeAsset(faviconHref, base)
+    };
+  };
+
+  const fetchSourceDocument = async (mention: WebmentionRecord, requestUrl = mention.source) => {
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 8000);
+    try {
+      const response = await fetch(requestUrl, {
+        headers: { Accept: 'text/html,application/xhtml+xml' },
+        signal: controller.signal
+      });
+      if (!response.ok) return null;
+      const contentType = response.headers.get('content-type') ?? '';
+      if (!contentType.toLowerCase().includes('text/html')) return null;
+      return parseSourceDocument(await response.text(), new URL(mention.source));
+    } catch {
+      return null;
+    } finally {
+      window.clearTimeout(timeout);
+    }
+  };
+
+  const fetchMicrolinkMetadata = async (mention: WebmentionRecord) => {
+    const source = new URL(mention.source);
     const url = new URL('https://api.microlink.io/');
     url.searchParams.set('url', mention.source);
     const controller = new AbortController();
     const timeout = window.setTimeout(() => controller.abort(), 8000);
-    const request = fetch(url, {
-      headers: { Accept: 'application/json' },
-      signal: controller.signal
-    }).then(async (response): Promise<SourceMetadata | null> => {
+    try {
+      const response = await fetch(url, {
+        headers: { Accept: 'application/json' },
+        signal: controller.signal
+      });
       if (!response.ok) return null;
       const payload = objectValue(await response.json());
       const data = objectValue(payload?.data);
       if (!data) return null;
-      const logo = objectValue(data.logo);
+      const title = plainText(typeof data.title === 'string' ? data.title : '');
       return {
-        title: plainText(typeof data.title === 'string' ? data.title : ''),
+        title: isSlugTitle(title, source) ? '' : title,
         siteName: plainText(typeof data.publisher === 'string' ? data.publisher : ''),
-        favicon: safeAsset(typeof logo?.url === 'string' ? logo.url : '', new URL(mention.source))
+        favicon: ''
       };
-    }).catch(() => null).finally(() => {
+    } catch {
+      return null;
+    } finally {
       window.clearTimeout(timeout);
-    });
-    metadataCache.set(mention.source, request);
+    }
+  };
+
+  const sourceMetadata = (mention: WebmentionRecord, siteOrigin: string) => {
+    const sourceOrigin = new URL(mention.source).origin;
+    const canFetchDirectly = sourceOrigin === window.location.origin || sourceOrigin === siteOrigin;
+    const cacheKey = `${canFetchDirectly ? 'direct' : 'external'}:${mention.source}`;
+    const cached = metadataCache.get(cacheKey);
+    if (cached) return cached;
+
+    const directUrl = sourceOrigin === siteOrigin
+      ? new URL(`${new URL(mention.source).pathname}${new URL(mention.source).search}`, window.location.origin).href
+      : mention.source;
+    const request = canFetchDirectly
+      ? fetchSourceDocument(mention, directUrl).then((metadata) => metadata ?? fetchMicrolinkMetadata(mention))
+      : fetchMicrolinkMetadata(mention);
+    metadataCache.set(cacheKey, request);
     return request;
   };
 
-  const enrichMention = async (mention: WebmentionRecord) => {
-    const metadata = await sourceMetadata(mention);
+  const enrichMention = async (mention: WebmentionRecord, siteOrigin: string) => {
+    const metadata = await sourceMetadata(mention, siteOrigin);
     if (!metadata) return mention;
     return {
       ...mention,
@@ -677,7 +746,8 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
     const status = root.querySelector<HTMLElement>('[data-webmentions-status]');
     const getEndpoint = root.dataset.getEndpoint;
     const target = root.dataset.target;
-    if (!loading || !status || !getEndpoint || !target) return;
+    const siteOrigin = root.dataset.siteOrigin;
+    if (!loading || !status || !getEndpoint || !target || !siteOrigin) return;
 
     state.controller?.abort();
     const controller = new AbortController();
@@ -697,7 +767,7 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
           : [];
         renderMentions(root, mentions);
         if (!mentions.length) return;
-        void Promise.all(mentions.map(enrichMention)).then((enriched) => {
+        void Promise.all(mentions.map((mention) => enrichMention(mention, siteOrigin))).then((enriched) => {
           if (root.isConnected) renderMentions(root, enriched);
         });
       })

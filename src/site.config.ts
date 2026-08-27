@@ -62,6 +62,11 @@ export const siteConfig: SiteConfig = {
     region: 'cn',
     lang: 'zh-CN'
   },
+  webmentions: {
+    enabled: true,
+    endpoint: 'https://webmention.luming.cool',
+    form: true
+  },
   search: { provider: 'pagefind', placeholder: '搜索文章' },
   toolbarItems: [
     { type: 'search', icon: 'search', name: '搜索文章' },

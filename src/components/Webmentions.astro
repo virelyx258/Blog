@@ -1,0 +1,518 @@
+---
+import { Send } from '@lucide/astro';
+import { getWebmentionEndpoint } from '@/lib/webmentions';
+import { siteConfig } from '@/site.config';
+
+interface Props {
+  target?: string;
+}
+
+const { target = new URL(Astro.url.pathname, siteConfig.site.url).href } = Astro.props;
+const config = siteConfig.webmentions;
+const endpoint = config.endpoint.trim();
+const receiveEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'receive') : '';
+const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
+---
+
+{config.enabled && endpoint && <section
+  class="webmentions-shell"
+  id="webmentions"
+  aria-labelledby="webmentions-title"
+  data-webmentions-root
+  data-get-endpoint={getEndpoint}
+  data-receive-endpoint={receiveEndpoint}
+  data-target={target}
+  data-pagefind-ignore="all"
+>
+  <h2 id="webmentions-title">WebMention</h2>
+
+  <p class="webmentions-status" data-webmentions-status role="status">正在读取站外回应...</p>
+
+  <div class="webmentions-reactions" data-webmentions-reactions hidden>
+    <div data-webmentions-reaction-group="like" hidden>
+      <h3><span data-webmentions-like-count>0</span> 人喜欢</h3>
+      <div class="webmentions-reaction-list" data-webmentions-like-list></div>
+    </div>
+    <div data-webmentions-reaction-group="repost" hidden>
+      <h3><span data-webmentions-repost-count>0</span> 次转发</h3>
+      <div class="webmentions-reaction-list" data-webmentions-repost-list></div>
+    </div>
+  </div>
+
+  <div class="webmentions-discussion" data-webmentions-discussion hidden>
+    <h3><span data-webmentions-discussion-count>0</span> 条回应与提及</h3>
+    <ol data-webmentions-list></ol>
+  </div>
+
+  {config.form && <form class="webmention-form" action={receiveEndpoint} method="post" data-webmention-form>
+    <label for="webmention-source">发送 WebMention</label>
+    <div class="webmention-form-row">
+      <input id="webmention-source" name="source" type="url" inputmode="url" autocomplete="url" placeholder="https://example.com/your-post" required />
+      <input name="target" type="hidden" value={target} />
+      <button type="submit">
+        <Send size={16} stroke-width={1.8} aria-hidden="true" />
+        <span>发送</span>
+      </button>
+    </div>
+    <p class="webmention-form-status" data-webmention-form-status role="status" aria-live="polite"></p>
+  </form>}
+</section>}
+
+<style>
+  .webmentions-shell {
+    width: min(100%, var(--article-content-width));
+    margin: 4.375rem auto 0;
+  }
+
+  .webmentions-shell > h2 {
+    margin: 0 0 1.5rem;
+    padding-top: 1.375rem;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-accent-strong);
+    font-family: var(--reading-font-family);
+    font-size: 1.5625rem;
+    font-weight: 500;
+  }
+
+  .webmentions-status,
+  .webmention-form-status {
+    color: var(--color-muted);
+    font-size: .86rem;
+  }
+
+  .webmentions-status {
+    margin: 0;
+    padding-block: .25rem 1rem;
+  }
+
+  .webmentions-reactions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .webmentions-reactions h3,
+  .webmentions-discussion h3 {
+    margin: 0 0 .75rem;
+    color: var(--color-text);
+    font-family: var(--reading-font-family);
+    font-size: .9375rem;
+    font-weight: 500;
+  }
+
+  .webmentions-reaction-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .45rem;
+  }
+
+  :global(.webmention-reaction) {
+    display: grid;
+    width: 2.25rem;
+    height: 2.25rem;
+    place-items: center;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    background: var(--color-code);
+    color: var(--color-muted);
+    font-family: var(--mirages-font-ui);
+    font-size: .75rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  :global(.webmention-reaction:hover) {
+    border-color: var(--color-accent);
+    color: var(--color-accent-strong);
+  }
+
+  .webmentions-discussion ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  :global(.webmention-item) {
+    display: grid;
+    grid-template-columns: 2.25rem minmax(0, 1fr);
+    gap: .75rem;
+    padding: 1.25rem 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  :global(.webmention-avatar) {
+    display: grid;
+    width: 2.25rem;
+    height: 2.25rem;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--color-code);
+    color: var(--color-muted);
+    font-family: var(--mirages-font-ui);
+    font-size: .75rem;
+    font-weight: 600;
+  }
+
+  :global(.webmention-meta) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: .25rem .65rem;
+    min-width: 0;
+  }
+
+  :global(.webmention-author) {
+    color: var(--color-text);
+    font-size: .875rem;
+    font-weight: 500;
+    overflow-wrap: anywhere;
+  }
+
+  :global(.webmention-date),
+  :global(.webmention-kind) {
+    color: var(--color-muted);
+    font-size: .75rem;
+  }
+
+  :global(.webmention-content) {
+    margin: .5rem 0 0;
+    color: var(--color-text);
+    font-size: .9375rem;
+    line-height: 1.65;
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+  }
+
+  :global(.webmention-source-link) {
+    display: inline-block;
+    margin-top: .45rem;
+    color: var(--color-accent);
+    font-size: .78rem;
+  }
+
+  .webmention-form {
+    margin-top: 2rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .webmention-form > label {
+    display: block;
+    margin-bottom: .5rem;
+    color: var(--color-muted);
+    font-size: .8rem;
+  }
+
+  .webmention-form-row {
+    display: flex;
+    gap: .625rem;
+  }
+
+  .webmention-form input[type='url'] {
+    min-width: 0;
+    flex: 1 1 auto;
+    height: 2.5rem;
+    padding: .5rem .75rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background: var(--color-surface);
+    color: var(--color-text);
+  }
+
+  .webmention-form input[type='url']:focus {
+    border-color: var(--color-accent);
+    outline: none;
+  }
+
+  .webmention-form button {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    gap: .4rem;
+    min-height: 2.5rem;
+    padding: .45rem .85rem;
+    border: 1px solid var(--color-accent-strong);
+    border-radius: var(--radius-sm);
+    background: var(--color-accent);
+    color: var(--color-accent-contrast);
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  .webmention-form button:disabled {
+    cursor: wait;
+    opacity: .6;
+  }
+
+  .webmention-form-status {
+    min-height: 1.5em;
+    margin: .4rem 0 0;
+  }
+
+  @media (max-width: 37.5rem) {
+    .webmentions-shell {
+      width: 100%;
+      margin-top: 3.25rem;
+    }
+
+    .webmention-form-row {
+      align-items: stretch;
+      flex-direction: column;
+    }
+
+    .webmention-form button {
+      align-self: flex-end;
+    }
+  }
+</style>
+
+<script>
+  type WebmentionRecord = {
+    id: string;
+    source: string;
+    createdAt: string;
+    title: string;
+    content: string;
+    author: string;
+    type: string;
+  };
+
+  type WebmentionClientState = {
+    bound?: boolean;
+    controller?: AbortController;
+  };
+
+  declare global {
+    interface Window {
+      __miragesWebmentions?: WebmentionClientState;
+    }
+  }
+
+  const state = window.__miragesWebmentions ??= {};
+
+  const getString = (record: Record<string, unknown>, key: string) => {
+    const value = record[key];
+    return typeof value === 'string' ? value.trim() : '';
+  };
+
+  const safeSource = (value: string) => {
+    try {
+      const url = new URL(value);
+      return url.protocol === 'http:' || url.protocol === 'https:' ? url : null;
+    } catch {
+      return null;
+    }
+  };
+
+  const plainText = (value: string) => {
+    if (!value) return '';
+    const parsed = new DOMParser().parseFromString(value, 'text/html');
+    return (parsed.body.textContent ?? '').replace(/\s+/g, ' ').trim().slice(0, 1200);
+  };
+
+  const normalizeMention = (value: unknown): WebmentionRecord | null => {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
+    const record = value as Record<string, unknown>;
+    const source = safeSource(getString(record, 'source'));
+    if (!source) return null;
+    return {
+      id: getString(record, 'id'),
+      source: source.href,
+      createdAt: getString(record, 'created_at'),
+      title: plainText(getString(record, 'title')),
+      content: plainText(getString(record, 'content')),
+      author: plainText(getString(record, 'author_name')) || source.hostname,
+      type: getString(record, 'type').toLowerCase()
+    };
+  };
+
+  const kindOf = (mention: WebmentionRecord) => {
+    if (mention.type.includes('like')) return 'like';
+    if (mention.type.includes('repost') || mention.type.includes('share')) return 'repost';
+    if (mention.type.includes('reply')) return 'reply';
+    return 'mention';
+  };
+
+  const kindLabel = (kind: ReturnType<typeof kindOf>) => ({
+    like: '喜欢',
+    repost: '转发',
+    reply: '回应',
+    mention: '提及'
+  })[kind];
+
+  const initialFor = (name: string) => Array.from(name.trim())[0]?.toLocaleUpperCase() ?? '@';
+
+  const sourceLink = (mention: WebmentionRecord, className: string) => {
+    const link = document.createElement('a');
+    link.className = className;
+    link.href = mention.source;
+    link.target = '_blank';
+    link.rel = 'nofollow ugc noopener noreferrer';
+    return link;
+  };
+
+  const renderReaction = (mention: WebmentionRecord) => {
+    const link = sourceLink(mention, 'webmention-reaction');
+    link.textContent = initialFor(mention.author);
+    link.title = mention.author;
+    link.setAttribute('aria-label', `${mention.author}：${kindLabel(kindOf(mention))}`);
+    return link;
+  };
+
+  const renderDiscussion = (mention: WebmentionRecord) => {
+    const kind = kindOf(mention);
+    const item = document.createElement('li');
+    item.className = 'webmention-item';
+
+    const avatar = document.createElement('span');
+    avatar.className = 'webmention-avatar';
+    avatar.textContent = initialFor(mention.author);
+    avatar.setAttribute('aria-hidden', 'true');
+
+    const body = document.createElement('div');
+    const meta = document.createElement('div');
+    meta.className = 'webmention-meta';
+
+    const author = sourceLink(mention, 'webmention-author');
+    author.textContent = mention.author;
+    meta.append(author);
+
+    if (mention.createdAt) {
+      const date = new Date(mention.createdAt);
+      if (!Number.isNaN(date.getTime())) {
+        const time = document.createElement('time');
+        time.className = 'webmention-date';
+        time.dateTime = date.toISOString();
+        time.textContent = new Intl.DateTimeFormat('zh-CN', { dateStyle: 'medium' }).format(date);
+        meta.append(time);
+      }
+    }
+
+    const type = document.createElement('span');
+    type.className = 'webmention-kind';
+    type.textContent = kindLabel(kind);
+    meta.append(type);
+    body.append(meta);
+
+    const text = mention.content || mention.title;
+    if (text) {
+      const content = document.createElement('p');
+      content.className = 'webmention-content';
+      content.textContent = text;
+      body.append(content);
+    }
+
+    const source = sourceLink(mention, 'webmention-source-link');
+    source.textContent = '查看来源';
+    body.append(source);
+    item.append(avatar, body);
+    return item;
+  };
+
+  const renderMentions = (root: HTMLElement, mentions: WebmentionRecord[]) => {
+    const status = root.querySelector<HTMLElement>('[data-webmentions-status]');
+    const likeGroup = root.querySelector<HTMLElement>('[data-webmentions-reaction-group="like"]');
+    const repostGroup = root.querySelector<HTMLElement>('[data-webmentions-reaction-group="repost"]');
+    const reactions = root.querySelector<HTMLElement>('[data-webmentions-reactions]');
+    const discussion = root.querySelector<HTMLElement>('[data-webmentions-discussion]');
+    const likeList = root.querySelector<HTMLElement>('[data-webmentions-like-list]');
+    const repostList = root.querySelector<HTMLElement>('[data-webmentions-repost-list]');
+    const list = root.querySelector<HTMLOListElement>('[data-webmentions-list]');
+    if (!status || !likeGroup || !repostGroup || !reactions || !discussion || !likeList || !repostList || !list) return;
+
+    const likes = mentions.filter((mention) => kindOf(mention) === 'like');
+    const reposts = mentions.filter((mention) => kindOf(mention) === 'repost');
+    const discussions = mentions.filter((mention) => !['like', 'repost'].includes(kindOf(mention)));
+
+    likeList.replaceChildren(...likes.map(renderReaction));
+    repostList.replaceChildren(...reposts.map(renderReaction));
+    list.replaceChildren(...discussions.map(renderDiscussion));
+
+    const likeCount = root.querySelector<HTMLElement>('[data-webmentions-like-count]');
+    const repostCount = root.querySelector<HTMLElement>('[data-webmentions-repost-count]');
+    const discussionCount = root.querySelector<HTMLElement>('[data-webmentions-discussion-count]');
+    if (likeCount) likeCount.textContent = String(likes.length);
+    if (repostCount) repostCount.textContent = String(reposts.length);
+    if (discussionCount) discussionCount.textContent = String(discussions.length);
+
+    likeGroup.hidden = likes.length === 0;
+    repostGroup.hidden = reposts.length === 0;
+    reactions.hidden = likes.length + reposts.length === 0;
+    discussion.hidden = discussions.length === 0;
+    status.textContent = mentions.length ? '' : '暂时还没有站外回应。';
+    status.hidden = mentions.length > 0;
+  };
+
+  const loadCurrentWebmentions = () => {
+    const root = document.querySelector<HTMLElement>('[data-webmentions-root]');
+    if (!root || root.dataset.webmentionsBound) return;
+    root.dataset.webmentionsBound = 'true';
+    const status = root.querySelector<HTMLElement>('[data-webmentions-status]');
+    const getEndpoint = root.dataset.getEndpoint;
+    const target = root.dataset.target;
+    if (!status || !getEndpoint || !target) return;
+
+    state.controller?.abort();
+    const controller = new AbortController();
+    state.controller = controller;
+    const url = new URL(getEndpoint);
+    url.searchParams.set('target', target);
+
+    fetch(url, { headers: { Accept: 'application/json' }, signal: controller.signal })
+      .then((response) => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.json();
+      })
+      .then((data: unknown) => {
+        if (!root.isConnected) return;
+        const mentions = Array.isArray(data)
+          ? data.map(normalizeMention).filter((mention): mention is WebmentionRecord => mention !== null)
+          : [];
+        renderMentions(root, mentions);
+      })
+      .catch(() => {
+        if (controller.signal.aborted || !root.isConnected) return;
+        status.textContent = '站外回应暂时无法读取。';
+      });
+  };
+
+  const submitWebmention = (form: HTMLFormElement) => {
+    const status = form.querySelector<HTMLElement>('[data-webmention-form-status]');
+    const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+    if (!status || !button) return;
+    button.disabled = true;
+    status.textContent = '正在发送...';
+
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { Accept: 'application/json' }
+    }).then((response) => {
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      status.textContent = '已收到，验证通过并经审核后会显示在这里。';
+      const source = form.elements.namedItem('source');
+      if (source instanceof HTMLInputElement) source.value = '';
+    }).catch(() => {
+      status.textContent = '发送失败，请稍后重试。';
+    }).finally(() => {
+      button.disabled = false;
+    });
+  };
+
+  if (!state.bound) {
+    state.bound = true;
+    document.addEventListener('submit', (event) => {
+      const form = event.target;
+      if (!(form instanceof HTMLFormElement) || !form.matches('[data-webmention-form]')) return;
+      event.preventDefault();
+      submitWebmention(form);
+    });
+    document.addEventListener('astro:page-load', loadCurrentWebmentions);
+    document.addEventListener('astro:before-swap', () => state.controller?.abort());
+  }
+
+  loadCurrentWebmentions();
+</script>

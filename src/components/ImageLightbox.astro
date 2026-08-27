@@ -24,13 +24,19 @@
     const items = images.map((item) => ({
       ...getSize(item),
       src: item.dataset.originalSrc || item.currentSrc || item.src,
-      alt: item.alt
+      msrc: item.currentSrc || item.src,
+      alt: item.alt,
+      element: item
     }));
 
     lightboxPromise ??= import('photoswipe/lightbox').then(({ default: PhotoSwipeLightbox }) => {
       const lightbox = new PhotoSwipeLightbox({
         pswpModule: () => import('photoswipe'),
-        bgClickAction: 'close'
+        bgClickAction: 'close',
+        showHideAnimationType: 'zoom',
+        showAnimationDuration: 360,
+        hideAnimationDuration: 300,
+        easing: 'cubic-bezier(0.22, 1, 0.36, 1)'
       });
       lightbox.init();
       return lightbox;

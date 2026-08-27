@@ -486,17 +486,26 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
     button.disabled = true;
     status.textContent = '正在发送...';
 
+    const body = new URLSearchParams();
+    for (const [name, value] of new FormData(form)) {
+      if (typeof value === 'string') body.append(name, value);
+    }
+
     fetch(form.action, {
       method: 'POST',
-      body: new FormData(form),
+      body,
       headers: { Accept: 'application/json' }
-    }).then((response) => {
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    }).then(async (response) => {
+      if (!response.ok) {
+        const message = plainText(await response.text());
+        throw new Error(message || `HTTP ${response.status}`);
+      }
       status.textContent = '已收到，验证通过并经审核后会显示在这里。';
       const source = form.elements.namedItem('source');
       if (source instanceof HTMLInputElement) source.value = '';
-    }).catch(() => {
-      status.textContent = '发送失败，请稍后重试。';
+    }).catch((error: unknown) => {
+      const message = error instanceof Error ? error.message : '';
+      status.textContent = message ? `发送失败：${message}` : '发送失败，请稍后重试。';
     }).finally(() => {
       button.disabled = false;
     });

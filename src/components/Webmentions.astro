@@ -1,5 +1,4 @@
 ---
-import { Send } from '@lucide/astro';
 import { getWebmentionEndpoint } from '@/lib/webmentions';
 import { siteConfig } from '@/site.config';
 
@@ -25,7 +24,7 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
   data-site-origin={new URL(siteConfig.site.url).origin}
   data-pagefind-ignore="all"
 >
-  <h2 id="webmentions-title">WebMention</h2>
+  <h2 class="sr-only" id="webmentions-title">WebMention</h2>
 
   <div class="webmentions-loading" data-webmentions-loading role="status" aria-label="正在读取 WebMention">
     <svg class="webmentions-loading-spinner" viewBox="25 25 50 50" aria-hidden="true">
@@ -56,10 +55,7 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
     <div class="webmention-form-row">
       <input id="webmention-source" name="source" type="url" inputmode="url" autocomplete="url" placeholder="https://example.com/your-post" required />
       <input name="target" type="hidden" value={target} />
-      <button type="submit">
-        <Send size={16} stroke-width={1.8} aria-hidden="true" />
-        <span>发送</span>
-      </button>
+      <button type="submit">发送</button>
     </div>
     <p class="webmention-form-status" data-webmention-form-status role="status" aria-live="polite"></p>
   </form>}
@@ -67,18 +63,8 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
 
 <style>
   .webmentions-shell {
-    width: min(100%, var(--article-content-width));
-    margin: 4.375rem auto 0;
-  }
-
-  .webmentions-shell > h2 {
-    margin: 0 0 1.5rem;
-    padding-top: 1.375rem;
-    border-top: 1px solid var(--color-border);
-    color: var(--color-accent-strong);
     font-family: var(--reading-font-family);
-    font-size: 1.5625rem;
-    font-weight: 500;
+    font-size: .94rem;
   }
 
   .webmentions-status,
@@ -163,7 +149,7 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
   :global(.webmention-reaction) {
     display: grid;
     width: 2.25rem;
-    height: 2.25rem;
+    height: 2.125rem;
     place-items: center;
     overflow: hidden;
     border: 1px solid var(--color-border);
@@ -254,7 +240,7 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
 
   :global(.webmention-author) {
     color: var(--color-text);
-    font-size: .875rem;
+    font-size: .8125rem;
     font-weight: 500;
     overflow-wrap: anywhere;
   }
@@ -308,12 +294,15 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
   .webmention-form input[type='url'] {
     min-width: 0;
     flex: 1 1 auto;
-    height: 2.5rem;
-    padding: .5rem .75rem;
+    height: 2.125rem;
+    padding: .438rem .525rem;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-sm);
     background: var(--color-surface);
     color: var(--color-text);
+    font-family: inherit;
+    font-size: .8125rem;
+    box-shadow: none;
   }
 
   .webmention-form input[type='url']:focus {
@@ -326,15 +315,17 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
     flex: 0 0 auto;
     align-items: center;
     justify-content: center;
-    gap: .4rem;
-    min-height: 2.5rem;
-    padding: .45rem .85rem;
-    border: 1px solid var(--color-accent-strong);
+    min-width: 7rem;
+    height: 2.25rem;
+    padding: 0 .875rem;
+    border: 0;
     border-radius: var(--radius-sm);
     background: var(--color-accent);
     color: var(--color-accent-contrast);
     cursor: pointer;
-    font-weight: 600;
+    font-family: inherit;
+    font-size: .875rem;
+    font-weight: 500;
   }
 
   .webmention-form button:disabled {
@@ -349,8 +340,7 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
 
   @media (max-width: 37.5rem) {
     .webmentions-shell {
-      width: 100%;
-      margin-top: 3.25rem;
+      font-size: .9rem;
     }
 
     .webmention-form-row {
@@ -360,6 +350,7 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
 
     .webmention-form button {
       align-self: flex-end;
+      min-width: 5.5rem;
     }
   }
 </style>

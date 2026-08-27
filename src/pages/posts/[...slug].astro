@@ -4,11 +4,10 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Masthead from '@/components/Masthead.astro';
 import { getContentCacheKey, getExcerpt, getPostCardImage, getPostPath, getPostTaxonomy, getPublicPosts, slugify } from '@/lib/content';
 import { siteConfig } from '@/site.config';
-import TwikooComments from '@/components/TwikooComments.astro';
+import EngagementTabs from '@/components/EngagementTabs.astro';
 import TableOfContents from '@/components/TableOfContents.astro';
 import Mermaid from '@/components/Mermaid.astro';
 import ImageLightbox from '@/components/ImageLightbox.astro';
-import Webmentions from '@/components/Webmentions.astro';
 export async function getStaticPaths() {
   const posts = await getPublicPosts();
   return posts.map((post, index) => ({
@@ -49,8 +48,11 @@ const dateText = `${date.year} 年 ${date.month} 月 ${date.day} 日`;
       {older ? <a class="grid min-h-24 content-center p-4 no-underline sm:border-r sm:border-line" href={getPostPath(older)}><span class="text-xs text-subtle">上一篇</span><strong class="mt-1 font-sans text-base font-normal">{older.data.title}</strong></a> : <span class="grid min-h-24 content-center p-4 sm:border-r sm:border-line"><span class="text-xs text-subtle">上一篇</span><strong class="mt-1 font-sans text-base font-normal">没有更多了</strong></span>}
       {newer ? <a class="grid min-h-24 content-center border-t border-line p-4 no-underline sm:border-t-0 sm:text-right" href={getPostPath(newer)}><span class="text-xs text-subtle">下一篇</span><strong class="mt-1 font-sans text-base font-normal">{newer.data.title}</strong></a> : <span class="grid min-h-24 content-center border-t border-line p-4 sm:border-t-0 sm:text-right"><span class="text-xs text-subtle">下一篇</span><strong class="mt-1 font-sans text-base font-normal">没有更多了</strong></span>}
     </nav>
-    <Webmentions target={new URL(Astro.url.pathname, siteConfig.site.url).href} />
-    <TwikooComments enabled={post.data.comments} path={Astro.url.pathname} />
+    <EngagementTabs
+      commentsEnabled={post.data.comments}
+      path={Astro.url.pathname}
+      target={new URL(Astro.url.pathname, siteConfig.site.url).href}
+    />
   </article>
   <Mermaid enabled={post.data.mermaid} />
 </BaseLayout>

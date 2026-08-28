@@ -26,6 +26,15 @@ const showTabs = showWebmention && showComments;
   {showTabs ? <div class="engagement-tablist" role="tablist" aria-label="文章互动方式">
     <button
       class="engagement-tab"
+      id="engagement-tab-comments"
+      type="button"
+      role="tab"
+      aria-controls="engagement-panel-comments"
+      aria-selected="true"
+      data-engagement-tab="comments"
+    >评论</button>
+    <button
+      class="engagement-tab"
       id="engagement-tab-webmentions"
       type="button"
       role="tab"
@@ -34,15 +43,6 @@ const showTabs = showWebmention && showComments;
       tabindex={-1}
       data-engagement-tab="webmentions"
     >Webmentions</button>
-    <button
-      class="engagement-tab"
-      id="engagement-tab-comments"
-      type="button"
-      role="tab"
-      aria-controls="engagement-panel-comments"
-      aria-selected="true"
-      data-engagement-tab="comments"
-    >评论</button>
   </div> : <h2 class="engagement-title">{showWebmention ? 'Webmention' : '评论'}</h2>}
 
   {showWebmention && <div

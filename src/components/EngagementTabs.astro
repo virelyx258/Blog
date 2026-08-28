@@ -30,17 +30,17 @@ const showTabs = showWebmention && showComments;
       type="button"
       role="tab"
       aria-controls="engagement-panel-webmentions"
-      aria-selected="true"
+      aria-selected="false"
+      tabindex={-1}
       data-engagement-tab="webmentions"
-    >Webmention</button>
+    >Webmentions</button>
     <button
       class="engagement-tab"
       id="engagement-tab-comments"
       type="button"
       role="tab"
       aria-controls="engagement-panel-comments"
-      aria-selected="false"
-      tabindex={-1}
+      aria-selected="true"
       data-engagement-tab="comments"
     >评论</button>
   </div> : <h2 class="engagement-title">{showWebmention ? 'Webmention' : '评论'}</h2>}
@@ -51,6 +51,7 @@ const showTabs = showWebmention && showComments;
     role={showTabs ? 'tabpanel' : undefined}
     aria-labelledby={showTabs ? 'engagement-tab-webmentions' : undefined}
     data-engagement-panel={showTabs ? 'webmentions' : undefined}
+    hidden={showTabs}
   >
     <Webmentions target={target} />
   </div>}
@@ -61,7 +62,6 @@ const showTabs = showWebmention && showComments;
     role={showTabs ? 'tabpanel' : undefined}
     aria-labelledby={showTabs ? 'engagement-tab-comments' : undefined}
     data-engagement-panel={showTabs ? 'comments' : undefined}
-    hidden={showTabs}
   >
     <TwikooComments enabled={commentsEnabled} path={path} />
   </div>}
@@ -213,7 +213,8 @@ const showTabs = showWebmention && showComments;
     root.dataset.engagementTabsBound = 'true';
 
     const tabs = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-engagement-tab]'));
-    const initialTab = tabNameFromHash() ?? (tabs[0]?.dataset.engagementTab as EngagementTabName | undefined);
+    const defaultTab = tabs.find((tab) => tab.dataset.engagementTab === 'comments')?.dataset.engagementTab;
+    const initialTab = tabNameFromHash() ?? (defaultTab as EngagementTabName | undefined);
     if (initialTab) activateEngagementTab(root, initialTab);
 
     for (const tab of tabs) {

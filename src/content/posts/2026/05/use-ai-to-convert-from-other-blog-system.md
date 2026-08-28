@@ -10,6 +10,7 @@ tags:
   - "Astro"
   - "Typecho"
 comments: true
+webmention: true
 ---
 
 

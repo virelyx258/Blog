@@ -8,6 +8,7 @@ tags:
   - "REDMI Watch 5"
   - "手表"
 comments: true
+webmention: true
 ---
 
 ## 写在前面

@@ -7,6 +7,7 @@ categories:
   - "生活"
 tags:
 comments: true
+webmention: true
 ---
 
 很抱歉我拖更了这么久，最近发生的事情很多很多。

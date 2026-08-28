@@ -9,6 +9,7 @@ tags:
   - "科技"
   - "红米手表"
 comments: true
+webmention: true
 ---
 
 

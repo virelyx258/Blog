@@ -6,6 +6,7 @@ categories: ['生活']
 tags: ['博客','博客组织']
 draft: false
 comments: true
+webmention: true
 ---
 
 初次加入 BlogsClub，我还不怎么当回事，以为他只是一个普通的博客聚合平台，和“十年之约”、“笔墨迹”性质相同。

@@ -8,6 +8,7 @@ tags:
   - "TicWatch"
   - "手表"
 comments: true
+webmention: true
 ---
 
 上周，我在闲鱼上斥巨资 ￥190 淘到了一台 TicWatch Pro3，因为我需要一块能够满足我在校通讯需求的手表。

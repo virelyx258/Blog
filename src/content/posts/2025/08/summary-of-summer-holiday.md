@@ -10,6 +10,7 @@ tags:
   - "生活"
   - "软件"
 comments: true
+webmention: true
 ---
 
 <!-- wp:audio {"id":1153} -->

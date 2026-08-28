@@ -9,6 +9,7 @@ tags:
   - "校园"
   - "考试"
 comments: true
+webmention: true
 ---
 
 ## 前言

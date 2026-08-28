@@ -9,6 +9,7 @@ tags:
   - "考试"
   - "搞机"
 comments: true
+webmention: true
 ---
 
 

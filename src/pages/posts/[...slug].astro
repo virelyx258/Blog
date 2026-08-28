@@ -29,7 +29,7 @@ const date = {
 };
 const dateText = `${date.year} 年 ${date.month} 月 ${date.day} 日`;
 ---
-<BaseLayout title={post.data.title} description={getExcerpt(post)} image={cover} type="article" math={post.data.math} navbarOverlay={Boolean(cover)}>
+<BaseLayout title={post.data.title} description={getExcerpt(post)} image={cover} type="article" math={post.data.math} webmention={post.data.webmention} navbarOverlay={Boolean(cover)}>
   <Fragment slot="masthead"><Masthead article={{ title: post.data.title, date, categories: taxonomy.categories, image: cover, textTone: post.data.textTone }} /></Fragment>
   <article class:list={['article-shell', 'relative pt-8 pb-14 md:pt-10 md:pb-20', { 'has-toc': toc.enabled, [`toc-${toc.position}`]: toc.enabled }]}>
     <div class="sr-only" aria-hidden="true">
@@ -50,6 +50,7 @@ const dateText = `${date.year} 年 ${date.month} 月 ${date.day} 日`;
     </nav>
     <EngagementTabs
       commentsEnabled={post.data.comments}
+      webmentionEnabled={post.data.webmention}
       path={Astro.url.pathname}
       target={new URL(Astro.url.pathname, siteConfig.site.url).href}
     />

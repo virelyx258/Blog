@@ -9,6 +9,7 @@ tags:
   - "游戏"
   - "睡眠"
 comments: true
+webmention: true
 ---
 
 ## 前言

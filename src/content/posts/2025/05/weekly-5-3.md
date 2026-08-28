@@ -9,6 +9,7 @@ tags:
   - "易语言"
   - "校园"
 comments: true
+webmention: true
 ---
 
 今天是 2025 年 5 月 31 日，端午节。朋友们，你们吃粽子了吗？

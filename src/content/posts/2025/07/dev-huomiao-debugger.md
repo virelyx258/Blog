@@ -9,6 +9,7 @@ tags:
   - "开发"
   - "易语言"
 comments: true
+webmention: true
 ---
 
 ## 前言

@@ -7,6 +7,7 @@ categories:
   - "生活"
 tags:
 comments: true
+webmention: true
 ---
 
 暑假已过半。七月，虽谈不上充实，但也不算虚度。

@@ -6,6 +6,7 @@ categories: ['人物']
 tags: ['同学','朋友','青春']
 draft: false
 comments: true
+webmention: true
 ---
 
 暂且称呼她为“雨灯”吧，因为这是她的网名。

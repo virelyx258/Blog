@@ -5,6 +5,7 @@ categories: ['科技']
 tags: ['主题']
 draft: false
 comments: true
+webmention: true
 ---
 
 Eidolon 是一款轻量、简洁且美观的 Astro 主题。基于 MIT License 开源。 

@@ -7,6 +7,7 @@ categories:
   - "公告"
 tags:
 comments: true
+webmention: true
 ---
 
 今日中考。祝愿所有的考生都能考上自己的第一志愿，金榜题名！

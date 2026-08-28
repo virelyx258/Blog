@@ -9,6 +9,7 @@ tags:
   - "校园"
   - "疾病"
 comments: true
+webmention: true
 ---
 
 忽然发现“周记”栏目好久没有更新了，那我就来写一篇水一下。

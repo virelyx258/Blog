@@ -5,6 +5,7 @@ categories: ['科技']
 tags: ['主题','Astro']
 draft: false
 comments: true
+webmention: true
 ---
 
 Eidolon 主题支持短代码。除兼容 [Mirages](https://get233.com/archives/mirages-intro.html) 的全部短代码外，额外增加了“Tools”组件。

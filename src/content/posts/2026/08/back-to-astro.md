@@ -6,6 +6,7 @@ categories: ['生活']
 tags: ['博客系统','Astro']
 draft: false
 comments: true
+webmention: true
 ---
 
 这不算正式文章，算一篇碎碎念。

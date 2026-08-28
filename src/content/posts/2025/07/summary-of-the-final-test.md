@@ -8,6 +8,7 @@ categories:
 tags:
   - "人生大事"
 comments: true
+webmention: true
 ---
 
 朋友们，好久不见。转眼间，洛阳市中考已经结束了，我已经是一名准高中生了。中考结束，怅然若失，让我把最近的经历讲给你听。

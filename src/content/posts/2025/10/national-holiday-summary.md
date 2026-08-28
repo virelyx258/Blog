@@ -7,6 +7,7 @@ categories:
 tags:
   - "生活"
 comments: true
+webmention: true
 ---
 
 ## 标签

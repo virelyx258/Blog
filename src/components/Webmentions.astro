@@ -24,9 +24,9 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
   data-site-origin={new URL(siteConfig.site.url).origin}
   data-pagefind-ignore="all"
 >
-  <h2 class="sr-only" id="webmentions-title">WebMention</h2>
+  <h2 class="sr-only" id="webmentions-title">Webmention</h2>
 
-  <div class="webmentions-loading" data-webmentions-loading role="status" aria-label="正在读取 WebMention">
+  <div class="webmentions-loading" data-webmentions-loading role="status" aria-label="正在读取 Webmention">
     <svg class="webmentions-loading-spinner" viewBox="25 25 50 50" aria-hidden="true">
       <circle class="webmentions-loading-path" cx="50" cy="50" r="20" fill="none"></circle>
     </svg>
@@ -51,7 +51,7 @@ const getEndpoint = endpoint ? getWebmentionEndpoint(endpoint, 'get') : '';
   </div>
 
   {config.form && <form class="webmention-form" action={receiveEndpoint} method="post" data-webmention-form>
-    <label for="webmention-source">发送 WebMention</label>
+    <label for="webmention-source">发送 Webmention</label>
     <div class="webmention-form-row">
       <input id="webmention-source" name="source" type="url" inputmode="url" autocomplete="url" placeholder="https://example.com/your-post" required />
       <input name="target" type="hidden" value={target} />

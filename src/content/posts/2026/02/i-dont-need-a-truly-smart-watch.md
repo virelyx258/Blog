@@ -11,6 +11,7 @@ tags:
   - "中国联通"
   - "手表"
 comments: true
+webmention: true
 ---
 
 

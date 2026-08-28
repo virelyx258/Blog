@@ -8,6 +8,7 @@ categories:
 tags:
   - "人生大事"
 comments: true
+webmention: true
 ---
 
 ## 前言（摘要）

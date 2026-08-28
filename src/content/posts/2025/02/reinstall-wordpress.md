@@ -8,6 +8,7 @@ categories:
 tags:
   - "WordPress"
 comments: true
+webmention: true
 ---
 
 5日下午，我在使用Follow给我自己的网站认证。但就在验证这一关里，它频频报错：

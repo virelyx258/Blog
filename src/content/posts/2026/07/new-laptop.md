@@ -7,6 +7,7 @@ categories:
 tags:
 comments: true
 draft: true
+webmention: true
 ---
 
 终于买新电脑了。作为纪念，我想说说我的电脑史。

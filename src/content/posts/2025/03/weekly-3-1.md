@@ -7,6 +7,7 @@ categories:
   - "生活"
 tags:
 comments: true
+webmention: true
 ---
 
 What can i say ?

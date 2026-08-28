@@ -9,6 +9,7 @@ tags:
   - "科技"
   - "网站"
 comments: true
+webmention: true
 ---
 
 朋友们，凌晨好。这里是熬夜优化网站的 RiseForever。

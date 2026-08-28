@@ -8,6 +8,7 @@ categories:
 tags:
   - "问卷"
 comments: true
+webmention: true
 ---
 
 ## 前言

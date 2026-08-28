@@ -8,6 +8,7 @@ categories:
 tags:
   - "网站"
 comments: true
+webmention: true
 ---
 
 ## 前言

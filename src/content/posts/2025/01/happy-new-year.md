@@ -7,6 +7,7 @@ categories:
   - "公告"
 tags:
 comments: true
+webmention: true
 ---
 
 真快，仿佛上一秒还在写2024年元旦文章，现在都已经开始写2025的了。

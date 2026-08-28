@@ -8,6 +8,7 @@ categories:
 tags:
   - "生活"
 comments: true
+webmention: true
 ---
 
 我最后一次认真写博客，是在 2 月 28 日。整整两个半月，我一篇文章都没更新。这篇文章，我想和你分享一下我这两个月的经历。

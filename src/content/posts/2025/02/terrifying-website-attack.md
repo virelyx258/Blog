@@ -8,6 +8,7 @@ categories:
 tags:
   - "WordPress"
 comments: true
+webmention: true
 ---
 
 ## 事发

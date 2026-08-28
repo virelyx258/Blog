@@ -6,6 +6,7 @@ categories:
 tags:
   - 总结
 draft: true
+webmention: true
 ---
 
 ## 序

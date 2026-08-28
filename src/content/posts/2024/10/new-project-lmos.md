@@ -8,6 +8,7 @@ categories:
 tags:
   - "易语言"
 comments: true
+webmention: true
 ---
 
 ## 前言

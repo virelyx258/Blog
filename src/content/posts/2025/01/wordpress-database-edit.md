@@ -8,6 +8,7 @@ categories:
 tags:
   - "WordPress"
 comments: true
+webmention: true
 ---
 
 > 人非圣贤，孰能无过。我也是一名学习人，难免会犯错误。如果本文有任何不恰当的地方/您有更优的方法，请您在本篇文章的评论区留言，我将第一时间采纳。谢谢您！

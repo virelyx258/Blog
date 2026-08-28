@@ -8,6 +8,7 @@ tags:
   - "一体机"
   - "重装系统"
 comments: true
+webmention: true
 ---
 
 上周，我给我班一体机重装了 Windows11 企业版 LTSC，原想着会像我给初中时的一体机重装一样简单，但我还是防不胜防——踩雷了。

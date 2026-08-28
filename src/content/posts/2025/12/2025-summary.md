@@ -7,6 +7,7 @@ categories:
 tags:
   - "年度总结"
 comments: true
+webmention: true
 ---
 
 写完之后回来看看，忽然发现这篇文章没什么意义，只是把 2025 年发过的文章理了一遍。

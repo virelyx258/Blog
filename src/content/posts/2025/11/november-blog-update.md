@@ -7,6 +7,7 @@ categories:
 tags:
   - "公告"
 comments: true
+webmention: true
 ---
 
 最近天气越来越冷了，我看着蓝色的头像和博客配色，总觉得不应季了。

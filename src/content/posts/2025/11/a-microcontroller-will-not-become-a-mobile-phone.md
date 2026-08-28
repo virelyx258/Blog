@@ -9,6 +9,7 @@ tags:
   - "小米"
   - "手表"
 comments: true
+webmention: true
 ---
 
 上周日返校途中，我在 AstroBox 上面刷着软件库，恰巧刷到了一位大佬编写的 Vela 第三方网易云音乐客户端。这是 Vela 圈出现的第三个自制客户端了。我使用的上一款客户端 [OMusic](https://www.bandbbs.cn/resources/4324/updates) 十分完美，但用久了之后，想尝试一些新的界面和功能。所以我便抱着试一试的态度下载了这个软件。

@@ -8,6 +8,7 @@ categories:
 tags:
   - "校园"
 comments: true
+webmention: true
 ---
 
 各位朋友，晚上好。欢迎收看Riseforever在25年6月的第一篇周记。

@@ -10,6 +10,7 @@ tags:
   - "校园"
   - "考试"
 comments: true
+webmention: true
 ---
 
 这篇文章写于2025年5月23日，距离河南省中招考试还有29天。

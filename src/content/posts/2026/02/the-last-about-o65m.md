@@ -9,6 +9,7 @@ tags:
   - "科技"
   - "红米手表"
 comments: true
+webmention: true
 ---
 
 > **【重要提示】** 本文提供的工具仅适用于 REDMI Watch 5 eSIM 版，请勿在蓝牙版或其它型号上尝试。刷机修改存在风险，请仔细阅读免责声明。

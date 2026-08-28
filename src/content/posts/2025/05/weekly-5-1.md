@@ -8,6 +8,7 @@ categories:
 tags:
   - "考试"
 comments: true
+webmention: true
 ---
 
 本篇周记日期范围：04/20-4/30（两周一起写）。

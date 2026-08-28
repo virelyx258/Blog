@@ -10,6 +10,7 @@ tags:
   - "手表"
   - "校园"
 comments: true
+webmention: true
 ---
 
 ## 前言

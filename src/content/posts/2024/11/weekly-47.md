@@ -8,6 +8,7 @@ categories:
 tags:
   - "研学"
 comments: true
+webmention: true
 ---
 
 ## 前言

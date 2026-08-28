@@ -7,6 +7,7 @@ categories:
 tags:
   - "公告"
 comments: true
+webmention: true
 ---
 
 ## 更换说明

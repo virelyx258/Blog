@@ -7,6 +7,7 @@ categories:
 tags:
   - "开发"
 comments: true
+webmention: true
 ---
 
 ## 前言

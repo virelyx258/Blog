@@ -9,6 +9,7 @@ tags:
   - "Python"
   - "易语言"
 comments: true
+webmention: true
 ---
 
 如你所见，RStatus视奸系统现已在Github平台开源，基于Apache 2.0协议。

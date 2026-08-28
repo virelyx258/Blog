@@ -5,7 +5,6 @@ categories: ['生活']
 tags: ['回信','时光']
 draft: false
 comments: true
-webmention: true
 cover: 'https://image.luming.cool/i/2026/08/25/6a8d6e7ec5f64.webp'
 ---
 

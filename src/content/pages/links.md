@@ -20,6 +20,8 @@ slug: "links"
 
 [小改学习志](https://www.haoyu233.com/)+(https://weavatar.com/avatar/14e584196d31262ea144ab4d75d4c083?s=200)/(行到水穷处，坐看云起时。)
 
+[懋和道人](https://blog.dao.js.cn/)+(https://weavatar.com/avatar/37d41e2b550633a30f5d41de61c1aa92?s=400&r=G&d=mp&ver=1754413756)/(李懋和，俗名李栋梁。书法、国画爱好者，互联网安全与前端建设者。)
+
 [lcrworld's blog](https://lcrworld.xyz)+(https://lcrworld.xyz/default-avatar.jpeg)/(lcrworld的个人博客，分享文章，记录日常)
 
 [UpXuu](https://upxuu.com)+(https://image.luming.cool/i/2026/08/17/6a82721a3b068.webp)/(逐光而上。)
@@ -54,7 +56,7 @@ slug: "links"
 
 [拥抱日出的小屋](https://blog.byside.top)+(https://blog.byside.top/upload/logo.jpg)/(拥抱日出，也拥抱生活)
 
-[岚汐の小窝](https://blog.lanxis.top/)+(https://pic.lingqi.vip/logo11.jpg)/(一个兽兽的小树屋~)
+[岚汐の小窝](https://blog.lanxis.top/)+(https://blog.lanxis.top/upload/b_b0e5eb025faadac07cf07f007348155b.jpg)/(一个兽兽的小树屋~)
 
 [睿朗的小窝](https://notes.iamcrl.cn/)+(https://iamcrl.cn/avatar.jpg)/(Ruilang's Blog)
 

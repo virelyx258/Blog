@@ -22,11 +22,13 @@ slug: "links"
 
 [lcrworld's blog](https://lcrworld.xyz)+(https://lcrworld.xyz/default-avatar.jpeg)/(lcrworld的个人博客，分享文章，记录日常)
 
+[UpXuu](https://upxuu.com)+(https://image.luming.cool/i/2026/08/17/6a82721a3b068.webp)/(逐光而上。)
+
 [KFACBT](https://blog.gytxtx.top/)+(https://image.luming.cool/i/2026/06/22/6a3957de12346.webp)/(主要分享一些技术文章，偶尔也会发一些日常。)
 
 [往日信笺](https://www.xingmail.cn/)+(https://image.luming.cool/i/2026/06/22/6a39570f5a1b6.webp)/(一个Xing分享自己的故事的地方)
 
-[Horean's Blog](https://blog.hxrch.top)+(https://image.luming.cool/i/2026/06/21/6a37f998e92c8.webp)/(Spread the knowledge wisely & widely.)
+[Horean's Blog](https://blog.hhut.me/)+(https://image.luming.cool/i/2026/06/21/6a37f998e92c8.webp)/(Spread the knowledge wisely & widely.)
 
 [小岚的杂物间](https://www.guirlan.de/)+(https://weavatar.com/avatar/172530293dcfb25d871a72ccb39b21c2?s=200)/(这里储存着各种稀奇古怪事物~)
 
@@ -47,8 +49,6 @@ slug: "links"
 [蒋音象](https://jiangyx.org/)+(https://image.luming.cool/i/2026/07/11/6a51235da5835.webp)/(以文会友，以友辅仁。)
 
 [摸鱼小窝](https://blog.aistu.cn)+(https://blog.aistu.cn/logo.webp)/(代码路上雾茫茫。)
-
-[UpXuu](https://upxuu.com)+(https://image.luming.cool/i/2026/08/17/6a82721a3b068.webp)/(逐光而上。)
 
 [没吃饱的天镜镜](https://blog.8765777.xyz/)+(https://blogr2.8765777.xyz/assets/my/7590A261E0E39A642ABF4873E89EAFF9.jpg)/(诺贝尔奖关注者，文学奖读者)
 

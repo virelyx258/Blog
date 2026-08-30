@@ -3,6 +3,7 @@ cover: "https://image.luming.cool/i/2026/05/10/69fff3ce09f1d.webp"
 title: "暑期 · 军训总结"
 pubDate: "2025-08-27T13:53:00.000Z"
 updatedDate: "2026-07-24T02:51:20.000Z"
+toc: true
 categories:
   - "生活"
 tags:
@@ -33,9 +34,7 @@ webmention: true
 <p>关键词：<code>Vela开发初体验</code>、<code>军训七天</code>、<code>和平精英</code>、<code>新鼠标</code>、<code>暑期总结</code>。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading -->
-<h2 class="wp-block-heading">Vela开发初体验</h2>
-<!-- /wp:heading -->
+## Vela开发初体验
 
 <!-- wp:paragraph -->
 <p>不知道Vela是什么的同学请先<a href="https://iot.mi.com/vela/quickapp/zh/guide/" data-type="link" data-id="https://iot.mi.com/vela/quickapp/zh/guide/" target="_blank" rel="noreferrer noopener">移步这里</a></p>
@@ -79,17 +78,13 @@ webmention: true
 <!-- /wp:paragraph --></blockquote>
 <!-- /wp:quote -->
 
-<!-- wp:heading -->
-<h2 class="wp-block-heading">军训七天</h2>
-<!-- /wp:heading -->
+## 军训七天
 
 <!-- wp:paragraph -->
 <p>8月19日 ~ 8月26日，我们前往学校报了到，并进行了为期七天的军训。这七天把我压抑得，我快要爆发了。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">新环境</h3>
-<!-- /wp:heading -->
+### 新环境
 
 <!-- wp:paragraph -->
 <p>8月19日上午，我在父母陪同下前往学校进行军训报到。进入新宿舍，一种熟悉又陌生的气息扑面而来：熟悉是因为它具备着与我初中宿舍相同的设施：柜子、水龙头和浴室；陌生，则是因为宿舍里有着五张陌生的面孔。</p>
@@ -107,9 +102,7 @@ webmention: true
 <p>剩余的几天，我在宿舍生活得还不错，每晚都能准时睡着，睡眠时间也保持在8小时左右。空调制冷效果一天比一天好，内机设定温度由一开始的16℃逐渐变为了20℃、22℃、26℃……我仍记得，倒数第二天晚上，空调开26℃，冻得我即使用被子捂住全身也仍能感受到寒意。当然，可能也有天气的原因——我们从第三天军训开始下大雨，后续几天保持阴天。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">军训服</h3>
-<!-- /wp:heading -->
+### 军训服
 
 <!-- wp:paragraph -->
 <p>学校军训，使用的服装是学校组织统一购买的的军训服，五十块钱。讲真，衣服穿上身的那一刻，我觉得这辈子买过最亏的物品就是军训服——上半身就是劣质化纤，下半身的布料甚至会刺激我的腿。</p>
@@ -133,9 +126,7 @@ webmention: true
 <p>这身衣服在功能上不透气、不舒适，在外观上也不符合军队标准，完全可以说是一笔智商税了。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">宿舍</h3>
-<!-- /wp:heading -->
+### 宿舍
 
 <!-- wp:paragraph -->
 <p>这算是我对这所学校唯二极度不满的地方。首先，以军训期间的作息规定为例：每天晚上 21:40 必须躺在床上，不能坐或站。每天宿管会逮出来一些 21:40 以后还未躺在床上的人。</p>
@@ -163,9 +154,7 @@ webmention: true
 <p>说人话，就是“无论如何我都要给你挑出点毛病来”。鸡蛋里挑骨头，为了打压学生而打压学生，真做作！</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">课外书</h3>
-<!-- /wp:heading -->
+### 课外书
 
 <!-- wp:paragraph -->
 <p>军训倒数第二天的下午，班里自习课上。</p>
@@ -197,9 +186,7 @@ webmention: true
 <p>我他妈才高一，不是高三高考生！为了升学率去限制学生阅读课外读物，妄图通过这种方法来让学生花更多时间投入学习，真是可笑。现在我终于理解了这学校之前为什么那么多跳的了。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">感触</h3>
-<!-- /wp:heading -->
+### 感触
 
 <!-- wp:paragraph -->
 <p>军训期间，我确确实实提前预习了一部分课本，因为实在是太无聊了。读到语文课本时，我感到了一种莫名的似曾相识。里面的大多数课文都是我在小学或初中遇到过的，有种见到阔别已久的老朋友的熟悉，但是一想到它是我高中三年要作为正式课程学习的内容，又有一种莫名的失落和恐惧。</p>
@@ -261,9 +248,7 @@ webmention: true
 <p>这差不多也是一次蜕变，我感受到了父母以前对我的溺爱</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">内卷</h3>
-<!-- /wp:heading -->
+### 内卷
 
 <!-- wp:paragraph -->
 <p>没想到，这所学校的同学们比我想象中的要“卷”得多。</p>
@@ -289,9 +274,7 @@ webmention: true
 <p>其余时间，比如早上七点整，同学们用完早餐，纷纷走向操场，等待教官要求集合。这段时间里，班主任要求我们必须“带上语文诗词小页子背诵”。每天晚自习要“抽查背诵”，如果抽查不合格，就到教室后面一直站着，直到会背为止。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">军训结束前的心情</h3>
-<!-- /wp:heading -->
+### 军训结束前的心情
 
 <!-- wp:paragraph -->
 <p>之所以单独划分一个板块来写，是因为这种心情太深刻了。</p>
@@ -313,9 +296,7 @@ webmention: true
 <p>看到这里，你可能会问我为什么会对“暴虐”自己七天的教官有如此正面的评价。我想说，相比于其他班的教官，他爱吹牛b，幽默风趣，总是能逗我们笑；他不吝啬以身试法买饮料奖励我们，并说“哪怕掏空我的钱包”；他总把我们班拉出去与别的班“比赛”，扬言“一定要把‘七班最强’这个名声打好”。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading -->
-<h2 class="wp-block-heading">和平精英</h2>
-<!-- /wp:heading -->
+## 和平精英
 
 <!-- wp:paragraph -->
 <p>这估计是每逢假期不得不提的一个话题。废话不多说，上时间统计。</p>
@@ -333,9 +314,7 @@ webmention: true
 <p>期间有几天，我那在上班的堂姐主动找我玩和平，我便陪着她一块玩，那几天的我，很快乐。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading -->
-<h2 class="wp-block-heading">新鼠标</h2>
-<!-- /wp:heading -->
+## 新鼠标
 
 <!-- wp:paragraph -->
 <p>军训七天回家之后，发现自己服役了一年多的杂牌鼠标滚轮暴毙了。才放了七天，滚轮就出现了上下滑动乱跳的情况。</p>
@@ -365,9 +344,7 @@ webmention: true
 <p>鼠标个头挺大，握起来有点质感。惊喜的是它在这个价位居然给了肩键。当然，可能是我没用过带肩键的鼠标，不知道价格情况。（笑）</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading -->
-<h2 class="wp-block-heading">总结</h2>
-<!-- /wp:heading -->
+## 总结
 
 <!-- wp:paragraph -->
 <p>这个暑假，我做了比较多的事情：</p>

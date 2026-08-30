@@ -96,8 +96,6 @@ slug: "links"
 
 [MC_Kero blog](https://blog.mckero.com/)+(https://img.cdn1.vip/i/68f3418995084_1760772489.png)/(依稀当年泪目干。)
 
-[Levi](https://leviqin.top/)+(https://image.luming.cool/i/2026/06/22/6a3957bedea05.webp)/(一个有意思的Blog，工作记录，日常分享，欢迎访问。)
-
 [重生云](https://xiaochopin.github.io/)+(https://weavatar.com/avatar/a10109bb266cc4eebc8d7992a4977a0c?s=200)/(明月装饰了你的窗，你装饰了别人的梦。)
 
 [Echo](https://www.liveout.cn/)+(https://image.luming.cool/i/2026/07/23/6a619b08ec4ad.webp)/(Life is code. I will debug it.)

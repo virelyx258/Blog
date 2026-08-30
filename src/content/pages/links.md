@@ -72,8 +72,6 @@ slug: "links"
 
 [蘇 SU](https://suus.me)+(https://weavatar.com/avatar/5b986063afb0ee2d78abd40defe3aec607d812b372093008646e137f61023869?sha256=1&d=mp&s=500)/在数字的海洋中，寻找属于自己的星辰。)
 
-[松種小窝](https://pineseed.cn/)+(https://image.luming.cool/i/2026/06/21/6a37fa0dc1945.webp)/(花开又花落，时节暗中迁。)
-
 ## 技术类博主
 
 [RubbishZ](https://rubbishz.com/)+(https://image.luming.cool/i/2026/08/26/6a8ee3a108b7b.webp)/(实力非凡的 Vela 快应用创作者。)

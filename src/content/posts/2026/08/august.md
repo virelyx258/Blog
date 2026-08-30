@@ -5,7 +5,7 @@ categories:
   - 生活
 tags:
   - 总结
-draft: false
+draft: true
 webmention: true
 comments: true
 ---

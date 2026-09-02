@@ -78,6 +78,8 @@ slug: "links"
 
 [老陈爱刷机](https://blog.chenyuxia.com/)+(https://image.luming.cool/i/2026/06/21/6a37fdaf9c4c7.webp)/(抖音博主，10 后技术大蛇。)
 
+[Tony's Blog](https://blog.iamsjy.com/)+(https://weavatar.com/avatar/05133c94d51c8003519bd17e55ddcd33)/(一个萌新的博客。)
+
 [10 科技说](https://www.tech10.cn/)+(https://image.luming.cool/i/2026/08/06/6a74af0519e25.webp)/(10科技说的个人主页。)
 
 [新锐博客](https://blog.xrbk.cn/)+(https://blog.xrbk.cn/favicon.png)/(记录学习与分享资源。)

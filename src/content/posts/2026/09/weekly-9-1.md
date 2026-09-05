@@ -1,7 +1,7 @@
 ---
-title: "周记 9-1：新座位、同桌降班、年级主任晋升、准高三日程"
+title: "周记 9-1：新座位、同桌降班、主任晋升、准高三日程"
 cover: 'https://image.luming.cool/i/2026/09/05/6a9c3ab1a5d5a.webp'
-pubDate: "2026-09-06T00:05:00.000Z"
+pubDate: "2026-09-06T00:10:00.000Z"
 categories: ['生活']
 tags: ['周记']
 draft: false

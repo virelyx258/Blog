@@ -17,6 +17,18 @@ comments: false
 
 半个独立开发者，曾参与开发过注册量 1000+ 的软件，却因技术不精，导致用户白白流失。
 
+### 听歌
+
+华晨宇、邓紫棋，他们绝大部分的歌我都循环了 100+ 遍，完全能熟练地唱出来。
+
+这里列几首我喜欢的，欢迎品鉴：
+
+- 华晨宇[《七重人格》](https://music1.luming.cool/share/BkxO252JGi)
+- 华晨宇[《飞行模式》](https://music1.luming.cool/share/qg7ZPAcoCU)
+- 华晨宇[《双截棍》](https://music1.luming.cool/share/E7PBSMJxBm)
+- 邓紫棋[《受难曲》](https://music1.luming.cool/share/od6toNgdDS)
+- 邓紫棋[《夜的尽头》](https://music1.luming.cool/share/lH8r5ulv3m)
+
 ### 联系
 
 电子邮箱：hi[at]riseforever.cn（请将“[at]”替换为“@”）

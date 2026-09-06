@@ -31,7 +31,7 @@ const position = banner?.position ?? siteConfig.banner.position;
 ---
 
 {enabled && <section
-  class="relative top-0 flex min-h-50 items-center justify-center overflow-hidden bg-raised pt-16 text-center text-foreground md:pt-16"
+  class:list={['relative top-0 flex min-h-50 items-center justify-center overflow-hidden bg-raised pt-16 text-center text-foreground md:pt-16', { 'about-masthead': about }]}
   style={`background-position: ${position}; --mobile-height: ${siteConfig.banner.mobileHeightVh}vh; --desktop-height: ${siteConfig.banner.desktopHeightVh}vh; --overlay: ${siteConfig.banner.overlay}`}
   data-banner-image={image || undefined}
   data-banner-tone={image ? 'light' : undefined}
@@ -47,7 +47,7 @@ const position = banner?.position ?? siteConfig.banner.position;
   {image && <div class="absolute inset-0 z-[1]" style={`background-color: rgb(0 0 0 / ${siteConfig.banner.overlay})`} aria-hidden="true"></div>}
     <div class="relative z-10 flex w-[calc(100%-1.75rem)] flex-col items-center justify-center">
     {about && <img
-      class:list={['mb-5 size-[7rem] rounded-full border-4 border-white/85 object-cover shadow-lg md:size-[9.375rem]', { 'about-avatar': siteConfig.site.author.rotateAvatar }]}
+      class:list={['mb-5 size-[7rem] shrink-0 rounded-full border-4 border-white/85 object-cover shadow-lg md:size-[9.375rem]', { 'about-avatar': siteConfig.site.author.rotateAvatar }]}
       src={siteConfig.site.author.avatar}
       alt={`${siteConfig.site.author.name} 的头像`}
       width="150"
@@ -55,7 +55,7 @@ const position = banner?.position ?? siteConfig.banner.position;
       loading="eager"
       fetchpriority="high"
     />}
-    <h1 class="m-0 text-[2rem] leading-tight font-light tracking-[0] md:text-[2.5rem]" id="masthead-title">{title}</h1>
+    <h1 class:list={['m-0 text-[2rem] leading-tight font-light tracking-[0] md:text-[2.5rem]', { 'shrink-0': about }]} id="masthead-title">{title}</h1>
     {article ? <p class="masthead-meta mt-3 mb-0 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-[0.9375rem] md:text-base">
       <span class="masthead-date"><span>{article.date.year}</span><strong>年</strong><span>{article.date.month}</span><strong>月</strong><span>{article.date.day}</span><strong>日</strong></span>
       {article.categories.length > 0 && <span class="masthead-separator" aria-hidden="true">·</span>}
@@ -107,6 +107,7 @@ const position = banner?.position ?? siteConfig.banner.position;
 
 <style>
   section { height: var(--mobile-height); }
+  .about-masthead { min-height: 15rem; }
   :global(:root[data-font='serif']) section h1 { font-weight: 700; }
   section[data-banner-image][data-banner-tone='dark'] h1,
   section[data-banner-image][data-banner-tone='dark'] p,
@@ -124,6 +125,6 @@ const position = banner?.position ?? siteConfig.banner.position;
   .masthead-category { font-family: var(--mirages-font-ui); }
   .about-avatar { transform: rotate(0deg); transition: transform 0.5s cubic-bezier(0.33, 1, 0.68, 1); }
   .about-avatar:hover { transform: rotate(-32deg); }
-   @media (min-width: 48rem) { section { height: var(--desktop-height); } }
+   @media (min-width: 48rem) { section { height: var(--desktop-height); } .about-masthead { min-height: 18rem; } }
   @media (prefers-reduced-motion: reduce) { .about-avatar { transition: none; transform: none; } .about-avatar:hover { transform: none; } }
 </style>

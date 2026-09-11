@@ -22,19 +22,21 @@ interface Props {
   textTone?: BannerTextTone;
 }
 
-const { article, banner, about = false } = Astro.props;
+const { article, banner, about = false, textTone: toneOverride } = Astro.props;
 const enabled = Boolean(about || article || banner || siteConfig.banner.enabled);
 const image = banner ? banner.image : article?.image ?? (about ? undefined : siteConfig.banner.image);
 const title = about ? siteConfig.site.author.name : (banner?.title ?? article?.title ?? siteConfig.banner.title);
 const subtitle = banner?.subtitle ?? siteConfig.banner.subtitle;
 const position = banner?.position ?? siteConfig.banner.position;
+const textTone = toneOverride ?? banner?.textTone ?? article?.textTone ?? siteConfig.banner.textTone ?? 'auto';
 ---
 
 {enabled && <section
   class:list={['relative top-0 flex min-h-50 items-center justify-center overflow-hidden bg-raised pt-16 text-center text-foreground md:pt-16', { 'about-masthead': about }]}
   style={`background-position: ${position}; --mobile-height: ${siteConfig.banner.mobileHeightVh}vh; --desktop-height: ${siteConfig.banner.desktopHeightVh}vh; --overlay: ${siteConfig.banner.overlay}`}
   data-banner-image={image || undefined}
-  data-banner-tone={image ? 'light' : undefined}
+  data-banner-tone={image ? (textTone === 'auto' ? 'light' : textTone) : undefined}
+  data-banner-tone-mode={image ? textTone : undefined}
   aria-labelledby="masthead-title"
   data-pagefind-ignore="all"
   data-banner
@@ -67,9 +69,9 @@ const position = banner?.position ?? siteConfig.banner.position;
   </div>
 </section>}
 
-{enabled && image && <script>
+{enabled && image && textTone === 'auto' && <script>
   const updateBannerTone = () => {
-    const masthead = document.querySelector<HTMLElement>('[data-banner][data-banner-image]');
+    const masthead = document.querySelector<HTMLElement>("[data-banner][data-banner-image][data-banner-tone-mode='auto']");
     const imageUrl = masthead?.dataset.bannerImage;
     if (!masthead || !imageUrl) return;
 

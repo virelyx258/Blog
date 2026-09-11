@@ -52,7 +52,6 @@ export const siteConfig: SiteConfig = {
       { label: '十年之约', href: 'https://www.foreverblog.cn/blog/6506.html', external: true },
       { label: '博友圈', href: 'https://www.boyouquan.com/blogs/luming.cool', external: true },
       { label: '好站网', href: 'https://haozhan.wang/site_detail.php?id=176', external: true },
-      { label: '集博栈', href: 'https://www.heyblog.net/site/019eff04-b025-76c9-b8f2-388deb7195cd', external: true },
       { label: '博客大联盟', href: 'https://bo.ke/luming.cool/', external: true }
     ]
   },

@@ -106,6 +106,6 @@ slug: "links"
 
 欢迎与我交换 88x31 按钮。第一个是本站按钮。若要交换，请先在贵站放置本站按钮，然后电邮联系我进行交换。
 
-<div style="display: inline-block; width: 88px;"><a href="https://www.luming.cool"><img src="https://image.luming.cool/i/2026/07/21/6a5f455105140.gif" alt="路明笔记" style="width: 100%; height: auto; display: block;"></a></div>
+<div style="display: inline-block; width: 88px;"><a href="https://www.luming.cool"><img src="https://www.luming.cool/88x31.gif" alt="路明笔记" style="width: 100%; height: auto; display: block;"></a></div>
 <div style="display: inline-block; width: 88px;"><a href="https://blog.bxaw.name/" target="_blank"><img src="https://img.bxaw.name/hotlink-ok/logo/bxaw-88x31.gif" alt="白熊阿丸" style="width: 100%; height: auto; display: block;"></a></div>
 <div style="display: inline-block; width: 88px;"><a href="https://blog.verdant.ee/" target="_blank"><img src="https://image.luming.cool/i/2026/08/02/6a6f6164bd5b6.gif" alt="映屿" style="width: 100%; height: auto; display: block;"></a></div>

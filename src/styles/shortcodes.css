@@ -276,6 +276,10 @@
 }
 .prose .shortcode-tools-title {
   display: block;
+  width: auto;
+  max-width: none;
+  padding-bottom: 0;
+  background: none;
 }
 .prose .shortcode-tools-title::before {
   content: none;

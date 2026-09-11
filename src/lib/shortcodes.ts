@@ -71,7 +71,7 @@ function normalizeMarkdownHeadings(source: string): string {
 
 function markdown(source: string, preserveHtml = true, lineNumbers = true): string {
   const normalized = normalizeMarkdownHeadings(source);
-  const tree = fromMarkdown(normalized, { extensions: [gfm()], mdastExtensions: [gfmFromMarkdown()] });
+  const tree = fromMarkdown(normalized, { extensions: [gfm({ singleTilde: false })], mdastExtensions: [gfmFromMarkdown()] });
   transform(tree, normalized);
   if (!preserveHtml) visit(tree, 'html', (node: any) => { if (!node.data?.shortcode) node.value = ''; });
   const hast = toHast(tree, { allowDangerousHtml: true }) as any;

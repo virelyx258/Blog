@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import { unified } from '@astrojs/markdown-remark';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
+import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import shortcodes from './src/lib/shortcodes.ts';
@@ -47,7 +48,8 @@ export default defineConfig({
       defaultColor: false
     },
     processor: unified({
-      remarkPlugins: [remarkMath, [shortcodes, { githubData, siteUrl: siteConfig.site.url }]],
+      gfm: false,
+      remarkPlugins: [[remarkGfm, { singleTilde: false }], remarkMath, [shortcodes, { githubData, siteUrl: siteConfig.site.url }]],
       rehypePlugins: [rehypeKatex, noticeShortcode, responsiveTables, [externalLinks, { siteUrl: siteConfig.site.url }]]
     })
   }

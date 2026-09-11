@@ -36,7 +36,7 @@ export const siteConfig: SiteConfig = {
     desktopHeightVh: 55,
     mobileHeightVh: 40,
     overlay: 0.25,
-    textTone: 'auto'
+    textTone: 'light'
   },
   cards: {
     defaultCovers: ['https://image.luming.cool/i/2026/08/03/6a6f79cc091ac.webp']

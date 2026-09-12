@@ -74,13 +74,14 @@ a:hover {
   content: '';
   pointer-events: none;
   transform: scaleX(0);
-  transform-origin: left center;
+  transform-origin: right center;
   transition: transform 180ms ease-out;
 }
 
 :where([data-text-link], .prose a:not(:has(img)), #comments a:not(:has(img))):not([data-no-text-link], [data-archive-entry], .pswp__button, .pswp__item, [role='button']):is(:hover, :focus-visible)::after,
 a:not([data-archive-entry]):is(:hover, :focus-visible) > [data-text-link]::after {
   transform: scaleX(1);
+  transform-origin: left center;
 }
 
 button,

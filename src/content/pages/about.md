@@ -3,8 +3,6 @@ cover: "https://image.luming.cool/i/2026/08/25/6a8d95c4195c9.webp"
 title: "关于"
 pubDate: "2026-07-22T01:28:00.000Z"
 updatedDate: "2026-07-27T05:26:00.000Z"
-categories:
-tags:
 slug: "about"
 comments: false
 ---
@@ -13,9 +11,7 @@ comments: false
 
 我是 RiseForever，真名路明，生于河南，高二。
 
-精神洁癖，多疑敏感，喜欢独处。
-
-半个独立开发者，曾参与开发过注册量 1000+ 的软件，却因技术不精，导致用户白白流失。
+我很幸福。
 
 ### 听歌
 

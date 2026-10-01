@@ -1,6 +1,6 @@
 ---
 title: "Xiaomi Watch S4 eSIM 图标包使用指南"
-pubDate: "2026-10-01T09:12:22.021Z"
+pubDate: "2026-10-01T17:12:22.021Z"
 categories: ['科技']
 tags: ['小米手表']
 draft: false

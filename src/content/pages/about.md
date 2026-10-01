@@ -11,8 +11,6 @@ comments: false
 
 我是 RiseForever，真名路明，生于河南，高二。
 
-我很幸福。
-
 ### 听歌
 
 华晨宇、邓紫棋，他们绝大部分的歌我都循环了 100+ 遍，完全能熟练地唱出来。
@@ -130,6 +128,8 @@ X：[luming_cool](https://x.com/luming_cool)
 ## 关于⌈我的作品⌋
 
 [tools title = "Xiaomi Vela 快应用"]
+
+[正气](https://www.bandbbs.cn/resources/8179/)+(https://image.luming.cool/i/2026/10/01/6abdd146115b5.webp)/(买断 · 腕上戒欲)
 
 [真智学](https://astrobox.online/open?source=resv2&id=cn.seedsoft.realzhixue&provider=OfficialV2)+(https://image.luming.cool/i/2026/08/07/6a75c6781929d.webp)/(免费 · 智学网客户端)
 

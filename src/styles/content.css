@@ -29,7 +29,9 @@
 
 .prose :where(p, li, blockquote, td, th) { overflow-wrap: anywhere; }
 
-.prose :where(h1, h2, h3, h4) {
+/* `.prose-heading` 让正文之外的页面（如友链页的分组标题）复用文章标题的渲染模式。 */
+.prose :where(h1, h2, h3, h4),
+.prose-heading {
   margin: 1.8em 0 0.65em;
   font-family: var(--reading-font-family);
   font-weight: 600;
@@ -45,12 +47,14 @@
   text-wrap: balance;
 }
 
-.prose h2 {
+.prose h2,
+.prose-heading {
   font-size: 1.65rem;
 }
 
 .prose h2,
-.prose h3 {
+.prose h3,
+.prose-heading {
   display: block !important;
   width: fit-content;
   max-width: 100%;

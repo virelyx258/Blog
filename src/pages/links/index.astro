@@ -12,7 +12,7 @@ const sections: Section[] = [{ name: '其他', links: [], contentLines: [] }];
 let section = sections[0];
 let shortcodeDepth = 0;
 const escapeHtml = (value: string) => value.replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[character]!);
-const renderNestedCard = (link: Link) => `<div class="links-nested-card"><article class="link-card"><img class="link-avatar" src="${escapeHtml(link.avatar)}" alt="" width="32" height="32" loading="lazy"><div class="link-copy"><h3><a class="link-name" data-text-link href="${escapeHtml(link.url)}" target="_blank" rel="noreferrer">${escapeHtml(link.name)}</a></h3><p class="link-description">${escapeHtml(link.description)}</p></div></article></div>`;
+const renderNestedCard = (link: Link) => `<div class="links-nested-card"><a class="link-card" href="${escapeHtml(link.url)}" target="_blank" rel="noreferrer" title="${escapeHtml(link.description)}"><img class="link-avatar" src="${escapeHtml(link.avatar)}" alt="" width="32" height="32" loading="lazy"><div class="link-copy"><h3><span class="link-name" data-text-link>${escapeHtml(link.name)}</span></h3><p class="link-description">${escapeHtml(link.description)}</p></div></a></div>`;
 for (const line of (page.body ?? '').split(/\r?\n/)) {
   if (/^\s*\[(?:collapse|hint|tip|tabs)\b[^\]]*\]\s*$/i.test(line)) {
     shortcodeDepth += 1;
@@ -45,16 +45,16 @@ if (!sections[0].links.length && !sections[0].contentLines.some((line) => line.t
   <Fragment slot="masthead"><Masthead banner={{ title: page.data.title, subtitle: page.data.description, image: page.data.hero ?? page.data.cover, textTone: page.data.textTone }} /></Fragment>
   <section class="links-shell" aria-label="友链内容">
     {sections.map((group) => <section class="links-category" aria-labelledby={`links-category-${group.name}`}>
-      <h2 id={`links-category-${group.name}`}>{group.name}</h2>
+      <h2 class="prose-heading" id={`links-category-${group.name}`}>{group.name}</h2>
       {group.links.length > 0 && <ul class="links-list">
         {group.links.map((link) => <li class="link-entry">
-          <article class="link-card">
+          <a class="link-card" href={link.url} target="_blank" rel="noreferrer" title={link.description}>
             <img class="link-avatar" src={link.avatar} alt="" width="32" height="32" loading="lazy" />
             <div class="link-copy">
-              <h3><a class="link-name" data-text-link href={link.url} target="_blank" rel="noreferrer">{link.name}</a></h3>
+              <h3><span class="link-name" data-text-link>{link.name}</span></h3>
               <p class="link-description">{link.description}</p>
             </div>
-          </article>
+          </a>
         </li>)}
       </ul>}
       {group.contentLines.some((line) => line.trim()) && <div class="links-content prose" set:html={renderMarkdown(group.contentLines.join('\n'))}></div>}
@@ -65,18 +65,31 @@ if (!sections[0].links.length && !sections[0].contentLines.some((line) => line.t
 <style>
   .links-shell { width: min(calc(100% - 2.5rem), var(--article-content-width)); margin-inline: auto; padding-block: 2rem 5rem; }
   .links-category + .links-category { margin-top: 2rem; }
-  .links-category h2 { margin: 0 0 .75rem; padding-bottom: .5rem; border-bottom: 1px solid var(--color-border); font-size: 1.2rem; font-weight: 600; }
+  /* 分组标题复用文章正文的二级标题渲染（见 styles/content.css 的 .prose-heading）。 */
+  .links-shell > .links-category:first-child > h2 { margin-top: 0; }
   .links-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .25rem; margin: 0; padding: 0; list-style: none; }
   .link-entry { min-width: 0; margin: 0; }
-  .link-card { display: flex; align-items: flex-start; gap: .75rem; min-width: 0; padding: .75rem .65rem; border-radius: var(--radius-sm); transition: background-color var(--transition-fast); }
+  .link-card { display: flex; align-items: flex-start; gap: .75rem; width: 100%; height: 100%; min-width: 0; padding: .75rem .65rem; border-radius: var(--radius-sm); color: inherit; transition: background-color var(--transition-fast); }
   .link-entry:hover { background: var(--color-archive-hover); }
   .link-avatar { width: 2rem; height: 2rem; flex: 0 0 2rem; border-radius: 50%; object-fit: cover; background: var(--color-surface); }
   .link-copy { min-width: 0; line-height: 1.7; overflow-wrap: anywhere; }
   .link-copy h3 { margin: 0; font-size: 1rem; font-weight: 600; line-height: 1.45; }
   .link-name { display: inline; color: var(--color-accent); text-decoration: none; }
   :global(:root[data-theme='sunset']) .link-name { color: color-mix(in srgb, var(--color-accent-strong) 82%, black); }
+  /* 整张卡片可点击，悬停卡片时展开标题的下划线反馈。 */
+  .link-card:is(:hover, :focus-visible) .link-name::after { transform: scaleX(1); transform-origin: left center; }
   .link-description, .link-note { margin: .2rem 0 0; color: color-mix(in srgb, var(--color-text) 82%, var(--color-muted)); font-size: .88rem; }
   .link-note { font-size: .86rem; }
+  /* 简介最多两行并预留两行高度，使所有卡片宽高一致。 */
+  .link-description {
+    display: -webkit-box;
+    min-height: calc(2 * 1.7em);
+    overflow: hidden;
+    line-height: 1.7;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+  }
   .links-content { margin-top: 2rem; }
   .links-content .links-nested-card { margin-block: 1rem; }
   .links-content .link-card { margin: 0; }

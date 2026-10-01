@@ -40,7 +40,7 @@ body {
   line-height: 1.7;
 }
 
-:where(.prose h2, .prose h3, .prose h4) {
+:where(.prose h2, .prose h3, .prose h4, .prose-heading) {
   scroll-margin-top: calc(var(--nav-height) + 1rem);
 }
 

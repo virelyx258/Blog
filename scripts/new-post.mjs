@@ -10,6 +10,20 @@ const year = String(now.getFullYear());
 const month = String(now.getMonth() + 1).padStart(2, '0');
 const postsDir = path.join(root, 'src', 'content', 'posts', year, month);
 
+// 写本地时间（带时区偏移），避免 toISOString 把日期转成 UTC 导致日期错一天
+function formatLocalISO(date) {
+  const pad = (n) => String(n).padStart(2, '0');
+  const offsetMinutes = -date.getTimezoneOffset();
+  const sign = offsetMinutes >= 0 ? '+' : '-';
+  const abs = Math.abs(offsetMinutes);
+  const offset = `${sign}${pad(Math.floor(abs / 60))}:${pad(abs % 60)}`;
+  return (
+    `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}` +
+    `T${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())}` +
+    `.${String(date.getMilliseconds()).padStart(3, '0')}${offset}`
+  );
+}
+
 const rl = readline.createInterface({ input, output });
 
 async function main() {
@@ -40,7 +54,7 @@ async function main() {
     const target = path.join(postsDir, `${slug}.md`);
     if (fs.existsSync(target)) throw new Error(`文章已存在: ${path.relative(root, target)}`);
 
-    const pubDate = now.toISOString();
+    const pubDate = formatLocalISO(now);
     const frontmatter = [
       '---',
       `title: ${JSON.stringify(title)}`,

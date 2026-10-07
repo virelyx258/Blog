@@ -72,6 +72,8 @@ slug: "links"
 
 ## 技术类博主
 
+[Zaona](https://zaona.top)+(https://image.luming.cool/i/2026/10/07/6ac58aeadcd53.webp)/(Explore The Edge Of Imagination.)
+
 [RubbishZ](https://rubbishz.com/)+(https://image.luming.cool/i/2026/08/26/6a8ee3a108b7b.webp)/(实力非凡的 Vela 快应用创作者。)
 
 [老陈爱刷机](https://blog.chenyuxia.com/)+(https://image.luming.cool/i/2026/06/21/6a37fdaf9c4c7.webp)/(抖音博主，10 后技术大蛇。)
@@ -87,6 +89,8 @@ slug: "links"
 [LR.C](https://bbslrc.vxni.ink/)+(https://image.luming.cool/i/2026/06/21/6a37ede8eaad4.webp)/(一位 Xiaomi Vela 快应用创作者。)
 
 [小景](https://jingyuan-zheng.github.io/zh/)+(https://image.luming.cool/i/2026/07/23/6a62284fa496c.webp)/(随心分享有趣的技术、开源项目与生活记录。)
+
+[落幕](https://zijian-theend.xyz)+(https://image.luming.cool/i/2026/10/07/6ac58b6592534.webp)/(一位热爱电子和折腾的学生。)
 
 [XXY の博客](https://blog.xuxiny.top)+(https://q1.qlogo.cn/headimg_dl?dst_uin=3429924750&spec=5)/(爱折腾，爱分享。)
 

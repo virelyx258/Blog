@@ -30,6 +30,8 @@ slug: "links"
 
 [往日信笺](https://www.xingmail.cn/)+(https://image.luming.cool/i/2026/06/22/6a39570f5a1b6.webp)/(一个Xing分享自己的故事的地方)
 
+[KuanZZZ](https://kuanzzz.pages.dev/)+(https://kuanzzz.pages.dev/favicon.ico)/(生物学本科生，分享研究、项目与日常。  )
+
 [Horean's Blog](https://blog.hhut.me/)+(https://image.luming.cool/i/2026/06/21/6a37f998e92c8.webp)/(Spread the knowledge wisely & widely.)
 
 [小岚的杂物间](https://www.guirlan.de/)+(https://weavatar.com/avatar/172530293dcfb25d871a72ccb39b21c2?s=200)/(这里储存着各种稀奇古怪事物~)

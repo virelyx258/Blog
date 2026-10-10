@@ -30,7 +30,7 @@ slug: "links"
 
 [往日信笺](https://www.xingmail.cn/)+(https://image.luming.cool/i/2026/06/22/6a39570f5a1b6.webp)/(一个Xing分享自己的故事的地方)
 
-[KuanZZZ](https://kuanzzz.pages.dev/)+(https://kuanzzz.pages.dev/favicon.ico)/(生物学本科生，分享研究、项目与日常。  )
+[KuanZZZ](https://kuanzzz.pages.dev/)+(https://image.luming.cool/i/2026/10/09/6ac8f64f68295.webp)/(生物学本科生，分享研究、项目与日常。  )
 
 [Horean's Blog](https://blog.hhut.me/)+(https://image.luming.cool/i/2026/06/21/6a37f998e92c8.webp)/(Spread the knowledge wisely & widely.)
 

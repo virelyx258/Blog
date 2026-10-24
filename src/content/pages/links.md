@@ -52,7 +52,7 @@ slug: "links"
 
 [蒋音象](https://jiangyx.org/)+(https://image.luming.cool/i/2026/07/11/6a51235da5835.webp)/(以文会友，以友辅仁。)
 
-[摸鱼小窝](https://blog.aistu.cn)+(https://blog.aistu.cn/logo.webp)/(代码路上雾茫茫。)
+[摸鱼小窝](https://moyu.plus)+(https://moyu.plus/logo.webp)/(代码路上雾茫茫。)
 
 [没吃饱的天镜镜](https://blog.8765777.xyz/)+(https://blogr2.8765777.xyz/assets/my/7590A261E0E39A642ABF4873E89EAFF9.jpg)/(诺贝尔奖关注者，文学奖读者)
 
